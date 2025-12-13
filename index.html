@@ -75,7 +75,6 @@
       overflow-x:hidden;
     }
 
-    /* Subtle grain */
     body::before{
       content:"";
       position:fixed;
@@ -94,7 +93,7 @@
     .container{max-width:1120px; margin:0 auto; padding:0 16px}
     .divider{border-top:1px solid var(--border)}
 
-    /* ✅ FIX: мягкий фокус (без “жирной красной рамки” на iPhone) */
+    /* Мягкий фокус */
     :focus { outline: none; }
     :focus-visible{
       outline: 2px solid rgba(225,6,19,.22);
@@ -135,7 +134,6 @@
     }
     header, main, footer, section, .stickybar, .toast-wrap, .progress, .admin-panel{position:relative; z-index:2;}
 
-    /* Premium hover glow */
     .shine{position:relative; isolation:isolate}
     .shine::before{
       content:"";
@@ -153,7 +151,6 @@
     }
     .shine:hover::before{opacity:1}
 
-    /* Shimmer (subtle) */
     .shimmer{position:relative; overflow:hidden}
     .shimmer::after{
       content:"";
@@ -171,23 +168,16 @@
       opacity:1;
       animation: shimmerMove 1.15s var(--ease) forwards;
     }
-    @keyframes shimmerMove{
-      to{ transform: rotate(18deg) translateX(260%); }
-    }
+    @keyframes shimmerMove{ to{ transform: rotate(18deg) translateX(260%); } }
 
-    /* Reveal */
     .reveal{
       opacity: 0;
       transform: translateY(14px);
       transition: opacity .55s var(--ease), transform .55s var(--ease);
       will-change: opacity, transform;
     }
-    .reveal.on{
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .reveal.on{opacity:1; transform: translateY(0);}
 
-    /* Pills */
     .pill{
       display:inline-flex; align-items:center; gap:8px;
       border:1px solid var(--border); background:#fff;
@@ -201,7 +191,6 @@
     .dot.warn{background:#f59e0b}
     .dot.off{background:#9aa4b2}
 
-    /* Buttons */
     .btn{
       display:inline-flex; align-items:center; justify-content:center; gap:10px;
       border-radius:18px; padding:14px 18px;
@@ -233,7 +222,6 @@
     }
     .btn-ghost:hover{color:var(--ink); border-color: rgba(11,15,23,.22); transform: translateY(-1px)}
 
-    /* Header */
     header{
       position:sticky; top:0;
       background:rgba(255,255,255,.78);
@@ -269,7 +257,6 @@
     }
     .header-phone:hover{color:var(--ink); border-color: rgba(11,15,23,.22)}
 
-    /* Logo */
     .brand{display:flex; align-items:center}
     .brand img{
       display:block;
@@ -284,7 +271,6 @@
       filter: drop-shadow(0 16px 34px rgba(225,6,19,.12)) drop-shadow(0 14px 30px rgba(11,15,23,.14));
     }
 
-    /* Hero */
     .hero{position:relative; overflow:hidden; padding:52px 0 28px;}
     .blob1,.blob2{
       position:absolute; border-radius:999px; filter:blur(70px);
@@ -372,7 +358,6 @@
       filter: saturate(1.05) contrast(1.02);
     }
 
-    /* ровные мини-карточки */
     .mini-grid{
       margin-top:12px;
       display:grid;
@@ -421,7 +406,6 @@
       word-break:break-word;
     }
 
-    /* Availability ticker */
     .ticker{
       margin-top:16px;
       border:1px solid var(--border);
@@ -475,7 +459,6 @@
       letter-spacing:-0.01em;
     }
 
-    /* Sections */
     .section{padding:56px 0}
     .soft{background:var(--soft)}
     .kicker{
@@ -495,7 +478,6 @@
     }
     .row-between{display:flex; align-items:flex-end; justify-content:space-between; gap:18px; flex-wrap:wrap}
 
-    /* Tabs */
     .tabs{
       display:inline-flex; gap:6px;
       padding:6px; border:1px solid var(--border);
@@ -515,7 +497,6 @@
       box-shadow: 0 10px 30px rgba(11,15,23,.18);
     }
 
-    /* Cards */
     .grid{margin-top:18px; display:grid; gap:14px; grid-template-columns:repeat(1,1fr)}
     .card{
       border:1px solid var(--border);
@@ -589,7 +570,6 @@
       letter-spacing: var(--track-body);
     }
 
-    /* Note */
     .note{
       margin-top:16px;
       border:1px solid var(--border);
@@ -609,7 +589,6 @@
     .note .txt .h{font-weight:900; letter-spacing:-0.01em}
     .note .txt .d{margin-top:4px; color:var(--muted); line-height:1.65; letter-spacing: var(--track-body)}
 
-    /* Order */
     .order{display:grid; gap:14px; grid-template-columns:1fr; margin-top:18px}
     .panel{
       border:1px solid var(--border);
@@ -698,13 +677,7 @@
     .total .v{font-size:18px; font-weight:950; letter-spacing:-0.02em; font-variant-numeric: tabular-nums slashed-zero}
     .order-actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
 
-    /* Departments */
-    .dept-grid{
-      margin-top:18px;
-      display:grid;
-      gap:14px;
-      grid-template-columns:repeat(1,1fr);
-    }
+    .dept-grid{margin-top:18px; display:grid; gap:14px; grid-template-columns:repeat(1,1fr);}
     .dept{
       border:1px solid var(--border);
       border-radius:28px;
@@ -786,18 +759,8 @@
       position:relative;
       padding-right: 140px;
     }
-    .dept .name{
-      font-size:18px;
-      font-weight:950;
-      letter-spacing:-0.02em;
-    }
-    .dept .desc{
-      margin-top:8px;
-      color:var(--muted);
-      line-height:1.65;
-      font-size:13px;
-      font-weight:500;
-    }
+    .dept .name{font-size:18px; font-weight:950; letter-spacing:-0.02em;}
+    .dept .desc{margin-top:8px; color:var(--muted); line-height:1.65; font-size:13px; font-weight:500;}
     .soon{
       display:inline-flex;
       padding:6px 10px;
@@ -817,14 +780,7 @@
       gap:12px;
       position:relative;
     }
-    .dept-cta .hint{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      font-size:12px;
-      font-weight:900;
-      letter-spacing:-0.01em;
-    }
+    .dept-cta .hint{display:flex; align-items:center; gap:10px; font-size:12px; font-weight:900; letter-spacing:-0.01em;}
     .icon-circle{
       width:46px;
       height:46px;
@@ -837,23 +793,10 @@
       transition: transform .22s var(--ease), border-color .22s var(--ease), box-shadow .22s var(--ease);
       flex:0 0 auto;
     }
-    .arrow{
-      width:18px;
-      height:18px;
-      stroke: var(--ink);
-      transition: transform .22s var(--ease), stroke .22s var(--ease);
-    }
-    .dept:hover .icon-circle{
-      transform: translateY(-1px);
-      border-color: rgba(225,6,19,.25);
-      box-shadow: 0 20px 70px rgba(225,6,19,.12);
-    }
-    .dept:hover .arrow{
-      transform: translateX(2px);
-      stroke: var(--red);
-    }
+    .arrow{width:18px; height:18px; stroke: var(--ink); transition: transform .22s var(--ease), stroke .22s var(--ease);}
+    .dept:hover .icon-circle{transform: translateY(-1px); border-color: rgba(225,6,19,.25); box-shadow: 0 20px 70px rgba(225,6,19,.12);}
+    .dept:hover .arrow{transform: translateX(2px); stroke: var(--red);}
 
-    /* Dark section */
     .dark{
       background:var(--ink);
       color:#fff;
@@ -878,12 +821,10 @@
       position:relative;
     }
 
-    /* Footer */
     footer{padding:26px 0}
     .footer-row{display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap}
     .fine{margin-top:12px; color:var(--muted); font-size:12px}
 
-    /* Mobile sticky */
     .stickybar{
       position:fixed; left:16px; right:16px;
       bottom: calc(12px + env(safe-area-inset-bottom));
@@ -898,7 +839,6 @@
     }
     .spacer{height: calc(86px + env(safe-area-inset-bottom));}
 
-    /* Toast */
     .toast-wrap{
       position:fixed;
       left:16px; right:16px;
@@ -930,7 +870,6 @@
     .toast.on{opacity:1; transform: translateY(0px)}
     .toast .small{font-weight:800; color:var(--muted); font-size:12px}
 
-    /* Responsive */
     @media (min-width: 860px){
       nav{display:flex}
       .header-phone{display:inline-flex}
@@ -945,9 +884,8 @@
       .toast-wrap{bottom: 18px}
     }
 
-    /* ✅ FIX: мобильная логика — шапка минимум, действия внизу */
+    /* Мобила: шапка минимальная, действия внизу */
     @media (max-width: 860px){
-      /* в шапке прячем QR и WhatsApp (они есть в нижней панели) */
       #qrOpenTop, #waTop { display:none !important; }
 
       .header-row { padding: 12px 0; }
@@ -955,20 +893,30 @@
       .header-actions { flex-wrap: nowrap; }
       .header-actions .btn { padding: 12px 14px; border-radius: 16px; }
 
-      /* ✅ FIX: в заказе на мобиле оставляем только 2 главные кнопки */
+      /* В заказе на мобиле оставляем только WA + TG */
       #nativeShareOrder,
       #copyOrder,
       #saveOrder,
       #saveFav,
       #saveContact,
-      #qrOpenOrder { display:none !important; }
+      #qrOpenOrder,
+      #callOrder { display:none !important; }
 
       .order-actions{
         display:grid;
         grid-template-columns: 1fr 1fr;
         gap: 10px;
+        align-items: stretch;
       }
-      #sendWA, #sendTGShare { width:100%; }
+      .order-actions .btn{
+        width:100%;
+        min-height: 52px;
+        padding: 14px 14px;
+        justify-content:center;
+      }
+
+      /* чтобы stickybar не перекрывал кнопки/итого */
+      #order{ padding-bottom: calc(56px + 110px + env(safe-area-inset-bottom)); }
     }
 
     @media (max-width: 420px){
@@ -1015,7 +963,6 @@
   </header>
 
   <main>
-    <!-- Hero -->
     <section class="hero">
       <div class="blob1"></div>
       <div class="blob2"></div>
@@ -1045,7 +992,6 @@
               Горбуша • Кета • Кижуч • Нерка <b>(по наличию)</b>.
             </p>
 
-            <!-- Availability ticker -->
             <div class="ticker shine" id="ticker">
               <div class="ticker-row" id="tickerRow">
                 <div class="ticker-title">Наличие сегодня</div>
@@ -1082,7 +1028,6 @@
       </div>
     </section>
 
-    <!-- PRICE -->
     <section id="price" class="section soft divider">
       <div class="container">
         <div class="row-between">
@@ -1120,7 +1065,6 @@
       </div>
     </section>
 
-    <!-- ORDER -->
     <section id="order" class="section divider">
       <div class="container">
         <div class="kicker">Быстрый заказ</div>
@@ -1198,7 +1142,6 @@
               <a class="btn btn-primary shimmer" id="sendWA" href="#" target="_blank" rel="noreferrer">Отправить в WhatsApp</a>
               <a class="btn btn-secondary shimmer" id="sendTGShare" href="#" target="_blank" rel="noreferrer">Отправить в Telegram</a>
 
-              <!-- на мобиле скрываем, на десктопе остаются -->
               <button class="btn btn-ghost shimmer" type="button" id="nativeShareOrder">Поделиться</button>
               <button class="btn btn-ghost shimmer" type="button" id="copyOrder">Скопировать заявку</button>
               <button class="btn btn-ghost shimmer" type="button" id="saveOrder">Сохранить выбор</button>
@@ -1206,10 +1149,10 @@
               <button class="btn btn-ghost shimmer" type="button" id="saveContact">Сохранить контакт</button>
               <button class="btn btn-ghost shimmer" type="button" id="qrOpenOrder">QR</button>
 
-              <a class="btn btn-ghost shimmer" href="tel:+79104788080">Позвонить</a>
+              <!-- важно: id нужен, чтобы скрывать на мобиле -->
+              <a class="btn btn-ghost shimmer" id="callOrder" href="tel:+79104788080">Позвонить</a>
             </div>
 
-            <!-- ✅ FIX: текст корректный даже если Share скрыт -->
             <div class="hint" style="margin-top:10px">
               Telegram откроется в новом окне — выберите чат, куда отправить текст.
             </div>
@@ -1248,7 +1191,6 @@
       </div>
     </section>
 
-    <!-- KAMCHATKA -->
     <section id="kamchatka" class="section soft divider">
       <div class="container">
         <div class="kicker">Камчатка</div>
@@ -1263,7 +1205,6 @@
       </div>
     </section>
 
-    <!-- DEPARTMENTS -->
     <section id="departments" class="section divider">
       <div class="container">
         <div class="kicker">Ассортимент</div>
@@ -1333,7 +1274,6 @@
       </div>
     </section>
 
-    <!-- DELIVERY -->
     <section id="delivery" class="section divider dark">
       <div class="container" style="position:relative">
         <div class="row-between" style="align-items:center">
@@ -1379,7 +1319,6 @@
     </div>
   </footer>
 
-  <!-- MOBILE STICKY -->
   <div class="stickybar" aria-label="Быстрые действия">
     <a class="btn btn-primary shimmer" style="flex:1" href="https://t.me/+epLhD48KRgg3YzZi" target="_blank" rel="noreferrer">Telegram</a>
     <a class="btn btn-secondary shimmer" style="flex:1" id="waSticky" href="#" target="_blank" rel="noreferrer">WhatsApp</a>
@@ -1387,22 +1326,16 @@
   </div>
   <div class="spacer"></div>
 
-  <!-- TOAST -->
   <div class="toast-wrap" aria-live="polite" aria-atomic="true">
     <div class="toast" id="toast"><span id="toastMsg">Готово</span> <span class="small" id="toastSub"></span></div>
   </div>
 
   <script>
-    // ===============================
-    // CONFIG
-    // ===============================
     const TG_INVITE = "https://t.me/+epLhD48KRgg3YzZi";
-    const WHATSAPP_PHONE = "79104788080"; // без +
+    const WHATSAPP_PHONE = "79104788080";
     const PHONE_TEL = "+79104788080";
-
     const STORAGE_KEY = "kamchatka_order_v2";
 
-    // Helpers
     const $ = (sel, root=document) => root.querySelector(sel);
     const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
     const prefersReduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -1414,7 +1347,6 @@
       return n.toLocaleString("ru-RU") + " ₽";
     }
 
-    // Toast
     let toastTimer = null;
     function toast(msg, sub=""){
       const t = $("#toast");
@@ -1450,7 +1382,6 @@
       }
     }
 
-    // Data
     const PRICE = {
       line1: {
         title: "Линия 1 — Фирменная фасовка",
@@ -1511,14 +1442,12 @@
       });
     }
 
-    // WhatsApp links
     const waTextDefault = "Здравствуйте! Хочу заказать икру. Подскажите наличие и ближайшее время.";
     ["waTop","waBottom","waFooter","waSticky"].forEach(id => {
       const el = document.getElementById(id);
       if (el) el.href = waLink(waTextDefault);
     });
 
-    // Price render
     const tabs = $$(".tab");
     const grid = $("#priceGrid");
     const lineTitle = $("#lineTitle");
@@ -1594,10 +1523,8 @@
       lines.push("WhatsApp: https://wa.me/" + WHATSAPP_PHONE);
       return lines.join("\n");
     }
-
     $("#copyPrice").addEventListener("click", () => copyToClipboard(buildPriceText(), "Прайс скопирован ✅"));
 
-    // Order calculator
     const fLine = $("#fLine");
     const fFish = $("#fFish");
     const fSize = $("#fSize");
@@ -1605,7 +1532,6 @@
     const fComment = $("#fComment");
     const fUnit = $("#fUnit");
     const fTotal = $("#fTotal");
-
     const sendWA = $("#sendWA");
     const sendTGShare = $("#sendTGShare");
 
@@ -1640,19 +1566,26 @@
       return (typeof n === "number") ? n : null;
     }
 
-    function clampQty(){
-      let q = parseInt(fQty.value, 10);
-      if (!Number.isFinite(q) || q < 1) q = 1;
+    /* ✅ FIX: не ломаем ввод количества */
+    function getQtyForCalc(){
+      const raw = (fQty.value || "").trim();
+      if (raw === "") return 1;
+      let q = parseInt(raw, 10);
+      if (!Number.isFinite(q)) return 1;
+      if (q < 1) q = 1;
       if (q > 99) q = 99;
-      fQty.value = String(q);
       return q;
+    }
+    function normalizeQtyOnBlur(){
+      const q = getQtyForCalc();
+      fQty.value = String(q);
     }
 
     function buildOrderText(){
       const lineKey = fLine.value;
       const fishKey = fFish.value;
       const size = fSize.value;
-      const qty = clampQty();
+      const qty = getQtyForCalc();
       const comment = (fComment.value || "").trim();
 
       const lineName = PRICE[lineKey].title;
@@ -1680,7 +1613,7 @@
 
     function updateOrder(){
       const u = unitPrice();
-      const qty = clampQty();
+      const qty = getQtyForCalc();
 
       fUnit.textContent = (u === null) ? "Уточнить" : money(u);
       fTotal.textContent = (u === null) ? "Уточнить" : money(u * qty);
@@ -1690,7 +1623,6 @@
       sendTGShare.href = tgShareLink(text);
     }
 
-    // Presets
     function setPreset(name){
       if (name === "gift"){
         fLine.value = "line1";
@@ -1714,6 +1646,7 @@
       updateOrder();
       toast("Выбрано ✅", "Можно отправлять");
     }
+
     $$("#order [data-preset]").forEach(btn => btn.addEventListener("click", () => setPreset(btn.dataset.preset)));
     $$("#order [data-qc]").forEach(btn => btn.addEventListener("click", () => {
       const v = btn.dataset.qc || "";
@@ -1722,14 +1655,13 @@
       toast("Комментарий добавлен ✅");
     }));
 
-    // Events
     fLine.addEventListener("change", () => { syncOrderSizes(); updateOrder(); });
     fFish.addEventListener("change", () => { syncOrderSizes(); updateOrder(); });
     fSize.addEventListener("change", updateOrder);
     fQty.addEventListener("input", updateOrder);
+    fQty.addEventListener("blur", () => { normalizeQtyOnBlur(); updateOrder(); });
     fComment.addEventListener("input", updateOrder);
 
-    // Native share (top)
     async function nativeShare(text){
       if (navigator.share){
         try{
@@ -1745,7 +1677,6 @@
       nativeShare("Камчатская красная икра (Москва/МО/Троицк/Новые Ватутинки)\n" + TG_INVITE)
     );
 
-    // WOW: cursor glow + reveal + scroll progress
     if (!prefersReduced){
       window.addEventListener("mousemove", (e) => {
         const x = (e.clientX / window.innerWidth) * 100;
@@ -1773,7 +1704,6 @@
       }, { passive:true });
     }
 
-    // Init
     renderPrice("line1");
     syncOrderSizes();
     updateOrder();
