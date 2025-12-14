@@ -1,24 +1,22 @@
 <!doctype html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="theme-color" content="#0B0F17" />
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta name="theme-color" content="#0B0F17"/>
 
   <title>Камчатская красная икра — Москва</title>
-  <meta name="description" content="Камчатская красная икра высшей категории: горбуша, кета, кижуч, нерка (по наличию). Москва/МО/Троицк/Новые Ватутинки. Фирменная и свежая фасовка. Документы." />
+  <meta name="description" content="Камчатская красная икра высшей категории. Москва/МО/Троицк/Новые Ватутинки. Фирменная и свежая фасовка. Документы по запросу."/>
 
-  <meta property="og:title" content="Камчатская красная икра высшей категории" />
-  <meta property="og:description" content="Москва/МО/Троицк/Новые Ватутинки. Фирменная и свежая фасовка. Документы. Заказ в Telegram / WhatsApp." />
-  <meta property="og:type" content="website" />
-  <meta property="og:locale" content="ru_RU" />
-
-  <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="%230B0F17"/><circle cx="32" cy="32" r="14" fill="%23E10613"/></svg>'>
+  <meta property="og:title" content="Камчатская красная икра высшей категории"/>
+  <meta property="og:description" content="Москва/МО/Троицк/Новые Ватутинки. Прайс + быстрый заказ в WhatsApp/Telegram."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:locale" content="ru_RU"/>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@450;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <link rel="preload" as="image" href="hero.webp" type="image/webp">
 
@@ -27,28 +25,16 @@
       --bg:#ffffff;
       --soft:#f6f8fb;
       --ink:#0b0f17;
-      --charcoal:#171c24;
       --muted:#3a4453;
       --border:#e6e8ee;
       --red:#e10613;
 
-      --radius:24px;
       --shadow: 0 18px 55px rgba(11,15,23,.08);
       --shadow2: 0 28px 90px rgba(11,15,23,.14);
-      --shadow3: 0 22px 70px rgba(225,6,19,.18);
-
       --ease: cubic-bezier(.2,.9,.2,1);
 
-      --lh-tight: 1.06;
-      --lh-title: 1.14;
-      --lh-body: 1.65;
-
-      --track-tight: -0.03em;
-      --track-title: -0.02em;
-      --track-body: -0.01em;
-
       --fs-h1: clamp(40px, 5vw, 66px);
-      --fs-h2: clamp(30px, 3.2vw, 38px);
+      --fs-h2: clamp(28px, 3.1vw, 38px);
       --fs-body: 16px;
       --fs-small: 13px;
       --fs-mini: 12px;
@@ -57,486 +43,275 @@
     *{box-sizing:border-box}
     html,body{height:100%}
     html{scroll-behavior:smooth}
-
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, "Inter", Segoe UI, Roboto, Arial, sans-serif;
-      color:var(--ink);
       background:var(--bg);
+      color:var(--ink);
+      font-size:var(--fs-body);
+      line-height:1.65;
+      letter-spacing:-0.01em;
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
-      text-rendering:optimizeLegibility;
-      -webkit-text-size-adjust: 100%;
-      font-size: var(--fs-body);
-      line-height: var(--lh-body);
-      font-weight:500;
-      letter-spacing: var(--track-body);
-      font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "ss01" 1, "ss03" 1;
       overflow-x:hidden;
     }
 
     body::before{
       content:"";
-      position:fixed;
-      inset:0;
+      position:fixed; inset:0;
       pointer-events:none;
       z-index:0;
       background:
         radial-gradient(circle at 1px 1px, rgba(11,15,23,.04) 1px, transparent 1.2px) 0 0 / 18px 18px,
         radial-gradient(circle at 1px 1px, rgba(225,6,19,.03) 1px, transparent 1.2px) 9px 9px / 22px 22px;
       mix-blend-mode:multiply;
-      opacity:.35;
+      opacity:.33;
     }
+
+    header, main, footer, section, .stickybar, .modal, .toast-wrap { position:relative; z-index:2; }
 
     a{color:inherit; text-decoration:none}
     img{max-width:100%; height:auto}
     .container{max-width:1120px; margin:0 auto; padding:0 16px}
     .divider{border-top:1px solid var(--border)}
+    .soft{background:var(--soft)}
 
-    /* Мягкий фокус */
-    :focus { outline: none; }
+    :focus { outline:none; }
     :focus-visible{
       outline: 2px solid rgba(225,6,19,.22);
       outline-offset: 4px;
       border-radius: 14px;
     }
-    input:focus-visible, select:focus-visible { outline: none; }
+    input:focus-visible, select:focus-visible, button:focus-visible { outline:none; }
 
-    /* Scroll progress */
-    .progress{
-      position:fixed;
-      top:0; left:0; right:0;
-      height:3px;
-      z-index:90;
-      background:transparent;
-      pointer-events:none;
-    }
-    .progress > span{
-      display:block;
-      height:100%;
-      width:0%;
-      background: linear-gradient(90deg, var(--red), #ff3b30);
-      box-shadow: 0 10px 30px rgba(225,6,19,.25);
-      transform-origin:left;
-    }
-
-    /* Cursor glow */
-    .cursor-glow{
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 1;
-      background:
-        radial-gradient(640px circle at var(--mx, 50%) var(--my, 30%),
-          rgba(225,6,19,.10),
-          transparent 55%);
-      opacity: .95;
-    }
-    header, main, footer, section, .stickybar, .toast-wrap, .progress, .admin-panel{position:relative; z-index:2;}
-
-    .shine{position:relative; isolation:isolate}
-    .shine::before{
-      content:"";
-      position:absolute;
-      inset:-2px;
-      border-radius: inherit;
-      background:
-        radial-gradient(circle at 20% 10%, rgba(225,6,19,.18), transparent 45%),
-        radial-gradient(circle at 80% 20%, rgba(11,15,23,.14), transparent 55%);
-      opacity:0;
-      transition: opacity .28s var(--ease);
-      z-index:-1;
-      filter: blur(14px);
-      pointer-events:none;
-    }
-    .shine:hover::before{opacity:1}
-
-    .shimmer{position:relative; overflow:hidden}
-    .shimmer::after{
-      content:"";
-      position:absolute;
-      top:-60%;
-      left:-60%;
-      width:60%;
-      height:220%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,.35), transparent);
-      transform: rotate(18deg) translateX(-120%);
-      opacity:0;
-      pointer-events:none;
-    }
-    .shimmer:hover::after{
-      opacity:1;
-      animation: shimmerMove 1.15s var(--ease) forwards;
-    }
-    @keyframes shimmerMove{ to{ transform: rotate(18deg) translateX(260%); } }
-
-    .reveal{
-      opacity: 0;
-      transform: translateY(14px);
-      transition: opacity .55s var(--ease), transform .55s var(--ease);
-      will-change: opacity, transform;
-    }
-    .reveal.on{opacity:1; transform: translateY(0);}
-
-    .pill{
-      display:inline-flex; align-items:center; gap:8px;
-      border:1px solid var(--border); background:#fff;
-      border-radius:999px; padding:8px 12px;
-      font-size: var(--fs-mini);
-      font-weight:800;
-      letter-spacing:-0.005em;
-    }
-    .dot{width:10px; height:10px; border-radius:999px; background:var(--red)}
-    .dot.ok{background:#16a34a}
-    .dot.warn{background:#f59e0b}
-    .dot.off{background:#9aa4b2}
-
+    /* ===== Buttons ===== */
     .btn{
       display:inline-flex; align-items:center; justify-content:center; gap:10px;
-      border-radius:18px; padding:14px 18px;
-      font-weight:850; font-size:14px;
+      border-radius:18px;
+      padding:14px 18px;
+      font-weight:850;
+      font-size:14px;
       letter-spacing:-0.01em;
-      transition:transform .18s var(--ease), box-shadow .22s var(--ease), border-color .22s var(--ease), color .22s var(--ease), background .22s var(--ease);
-      user-select:none; white-space:nowrap; will-change: transform;
       border:1px solid transparent;
       cursor:pointer;
-      position:relative;
+      user-select:none;
+      transition: transform .18s var(--ease), box-shadow .22s var(--ease), border-color .22s var(--ease), color .22s var(--ease), background .22s var(--ease);
+      will-change: transform;
+      background:transparent;
+      white-space:nowrap;
     }
     .btn:active{transform:translateY(1px)}
-    .btn-primary{
-      background:var(--ink); color:#fff; border-color:var(--ink);
-      box-shadow: 0 18px 50px rgba(11,15,23,.18);
-    }
-    .btn-primary:hover{transform: translateY(-1px); box-shadow: var(--shadow3)}
-    .btn-secondary{
-      background:#fff; color:var(--ink); border-color:var(--ink);
-    }
-    .btn-secondary:hover{
-      transform: translateY(-1px);
-      border-color:var(--red);
-      color:var(--red);
-      box-shadow: 0 16px 40px rgba(225,6,19,.10);
-    }
-    .btn-ghost{
-      background:transparent; color:var(--muted); border-color:var(--border);
-    }
-    .btn-ghost:hover{color:var(--ink); border-color: rgba(11,15,23,.22); transform: translateY(-1px)}
+    .btn-primary{background:var(--ink); color:#fff; border-color:var(--ink); box-shadow: 0 18px 50px rgba(11,15,23,.18);}
+    .btn-primary:hover{transform:translateY(-1px); box-shadow: 0 22px 70px rgba(225,6,19,.18);}
+    .btn-secondary{background:#fff; color:var(--ink); border-color:var(--ink);}
+    .btn-secondary:hover{transform:translateY(-1px); border-color:rgba(225,6,19,.55); color:var(--red); box-shadow: 0 16px 40px rgba(225,6,19,.10);}
+    .btn-ghost{background:transparent; color:var(--muted); border-color:var(--border);}
+    .btn-ghost:hover{transform:translateY(-1px); color:var(--ink); border-color: rgba(11,15,23,.22);}
 
+    /* ===== Header ===== */
     header{
       position:sticky; top:0;
       background:rgba(255,255,255,.78);
       backdrop-filter: blur(12px);
       border-bottom:1px solid var(--border);
-      z-index:60;
+      z-index:50;
     }
     .header-row{
       display:flex; align-items:center; justify-content:space-between;
+      gap:14px;
       padding:14px 0;
-      gap:16px;
     }
     nav{display:none; gap:18px; align-items:center}
-    nav a{
-      font-size: var(--fs-small);
-      font-weight:800;
-      color:var(--muted);
-      letter-spacing:-0.005em;
-    }
+    nav a{font-size:var(--fs-small); font-weight:850; color:var(--muted)}
     nav a:hover{color:var(--ink)}
+
+    .brand{display:flex; align-items:center}
+    .brand img{
+      width:100px; height:100px;
+      object-fit:contain;
+      filter: drop-shadow(0 14px 30px rgba(11,15,23,.12));
+      transition: transform .22s var(--ease), filter .22s var(--ease);
+      will-change: transform;
+    }
+    .brand img:hover{
+      transform: translateY(-1px) scale(1.02);
+      filter: drop-shadow(0 18px 40px rgba(225,6,19,.12)) drop-shadow(0 14px 30px rgba(11,15,23,.14));
+    }
 
     .header-actions{display:flex; gap:10px; align-items:center; flex-wrap:wrap}
     .header-phone{
       display:none;
-      font-size:13px;
-      font-weight:850;
-      letter-spacing:-0.01em;
+      font-size:13px; font-weight:900;
       color:var(--muted);
       padding:10px 12px;
       border:1px solid var(--border);
       border-radius:18px;
       background:#fff;
     }
-    .header-phone:hover{color:var(--ink); border-color: rgba(11,15,23,.22)}
+    .header-phone:hover{color:var(--ink); border-color:rgba(11,15,23,.22)}
 
-    .brand{display:flex; align-items:center}
-    .brand img{
-      display:block;
-      width:84px; height:84px;
-      object-fit:contain;
-      filter: drop-shadow(0 10px 22px rgba(11,15,23,.12));
-      transition: transform .25s var(--ease), filter .25s var(--ease);
-      will-change: transform;
-    }
-    .brand img:hover{
-      transform: translateY(-1px) scale(1.02);
-      filter: drop-shadow(0 16px 34px rgba(225,6,19,.12)) drop-shadow(0 14px 30px rgba(11,15,23,.14));
-    }
-
-    .hero{position:relative; overflow:hidden; padding:52px 0 28px;}
+    /* ===== Hero ===== */
+    .hero{padding:58px 0 28px; position:relative; overflow:hidden}
     .blob1,.blob2{
       position:absolute; border-radius:999px; filter:blur(70px);
-      opacity:.07; pointer-events:none;
-      animation: floaty 10s var(--ease) infinite alternate;
-      z-index:0;
+      pointer-events:none; opacity:.07; z-index:0;
+      animation: floaty 12s var(--ease) infinite alternate;
     }
-    .blob1{width:420px;height:420px; right:-140px; top:-90px; background:var(--red)}
-    .blob2{width:460px;height:460px; left:-160px; top:110px; background:var(--ink); opacity:.05; animation-duration: 12s}
-    @keyframes floaty{ from{transform: translate3d(0,0,0)} to{transform: translate3d(0,18px,0)} }
+    .blob1{width:420px; height:420px; right:-140px; top:-90px; background:var(--red)}
+    .blob2{width:520px; height:520px; left:-200px; top:120px; background:var(--ink); opacity:.05; animation-duration: 14s}
+    @keyframes floaty{from{transform:translate3d(0,0,0)} to{transform:translate3d(0,18px,0)}}
 
-    .hero-grid{display:grid; gap:28px; align-items:center}
-
-    h1,h2,h3{margin:0; font-weight:900; letter-spacing: var(--track-title); line-height: var(--lh-title)}
-    h1{font-size: var(--fs-h1); letter-spacing: var(--track-tight); line-height: var(--lh-tight)}
-    h2{font-size: var(--fs-h2)}
-    .grad-text{
-      background:linear-gradient(180deg, var(--ink), var(--charcoal));
+    .hero-grid{display:grid; gap:26px; align-items:center}
+    h1,h2,h3{margin:0; font-weight:900; letter-spacing:-0.03em; line-height:1.1}
+    h1{font-size:var(--fs-h1)}
+    h2{font-size:var(--fs-h2); letter-spacing:-0.02em}
+    .grad{
+      background:linear-gradient(180deg, var(--ink), #1b2230);
       -webkit-background-clip:text; background-clip:text;
       color:transparent;
     }
 
     .lead{
-      margin-top:18px;
-      font-size: clamp(16px, 1.2vw, 17px);
-      line-height: var(--lh-body);
-      letter-spacing: var(--track-body);
-      font-weight:500;
-      color: var(--muted);
+      margin-top:16px;
+      color:var(--muted);
       max-width:62ch;
+      font-weight:500;
     }
 
-    .cta-row{margin-top:22px; display:flex; gap:12px; flex-wrap:wrap}
-    .kicker-row{margin-top:18px; display:flex; gap:10px; flex-wrap:wrap}
-
-    .swoosh{margin-top:14px; width:min(520px,72vw); height:auto; display:block}
-    .swoosh path{
-      stroke-dasharray: 900;
-      stroke-dashoffset: 900;
-      animation: draw 1.2s var(--ease) forwards;
+    .pillbar{margin-top:14px; display:flex; gap:10px; flex-wrap:wrap}
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background:#fff;
+      font-size:var(--fs-mini);
+      font-weight:900;
+      letter-spacing:-0.005em;
     }
-    @keyframes draw{ to{ stroke-dashoffset: 0; } }
+    .dot{width:10px; height:10px; border-radius:999px; background:var(--red)}
+    .dot.ok{background:#16a34a}
+    .dot.warn{background:#f59e0b}
+
+    .cta-row{margin-top:18px; display:flex; gap:12px; flex-wrap:wrap}
 
     .visual{
       border:1px solid var(--border);
-      border-radius:40px;
       background:#fff;
+      border-radius:40px;
+      padding:14px;
       box-shadow: 0 30px 90px rgba(11,15,23,.10);
-      padding:16px;
       position:relative;
       overflow:hidden;
     }
     .visual::after{
       content:"";
-      position:absolute;
-      inset:-40% -40%;
+      position:absolute; inset:-40% -40%;
       background: radial-gradient(circle at 30% 30%, rgba(225,6,19,.08), transparent 55%);
       transform: rotate(12deg);
       pointer-events:none;
     }
-    .visual-top{
-      display:flex; justify-content:space-between; align-items:center;
-      font-size: var(--fs-mini);
-      font-weight:800;
-      letter-spacing:-0.005em;
-    }
-
     .hero-photo{
       width:100%;
       height:460px;
       object-fit:cover;
-      object-position:center;
       border-radius:28px;
-      margin-top:12px;
       border:1px solid var(--border);
-      box-shadow: 0 18px 55px rgba(11,15,23,.08);
+      box-shadow: var(--shadow);
       background: var(--soft);
-      display:block;
-      transition: transform .35s var(--ease), filter .35s var(--ease);
-      will-change: transform;
       cursor: zoom-in;
+      transition: transform .32s var(--ease), filter .32s var(--ease);
+      will-change: transform;
+      display:block;
+      margin-top:12px;
     }
     .visual:hover .hero-photo{
       transform: scale(1.01);
       filter: saturate(1.05) contrast(1.02);
     }
-
     .mini-grid{
       margin-top:12px;
       display:grid;
       gap:10px;
       grid-template-columns:repeat(3, minmax(0, 1fr));
       align-items:stretch;
-      grid-auto-rows: 1fr;
     }
     .mini{
       border:1px solid var(--border);
       background:var(--soft);
       border-radius:18px;
       padding:12px 12px;
-      transition: transform .22s var(--ease), border-color .22s var(--ease), box-shadow .22s var(--ease);
-      height:100%;
+      min-height:72px;
       display:flex;
       flex-direction:column;
       justify-content:space-between;
-      min-height:72px;
       overflow:hidden;
-    }
-    .visual:hover .mini{
-      border-color: rgba(225,6,19,.18);
-      box-shadow: 0 18px 55px rgba(225,6,19,.08);
     }
     .mini .t{
       font-size:11px;
       letter-spacing:0.14em;
       text-transform:uppercase;
-      font-weight:900;
+      font-weight:950;
       color:var(--muted);
       line-height:1.1;
     }
     .mini .v{
       margin-top:6px;
       font-size:12px;
-      letter-spacing:-0.01em;
       font-weight:950;
-      color:var(--ink);
+      letter-spacing:-0.01em;
       line-height:1.25;
       display:-webkit-box;
       -webkit-line-clamp:2;
       -webkit-box-orient:vertical;
       overflow:hidden;
-      text-overflow:ellipsis;
-      word-break:break-word;
     }
 
-    .ticker{
-      margin-top:16px;
-      border:1px solid var(--border);
-      border-radius:22px;
-      background:#fff;
-      box-shadow: var(--shadow);
-      overflow:hidden;
-      position:relative;
-    }
-    .ticker::before{
-      content:"";
-      position:absolute;
-      inset:-40% -40%;
-      background: radial-gradient(circle at 30% 30%, rgba(225,6,19,.08), transparent 55%);
-      pointer-events:none;
-    }
-    .ticker-row{
-      display:flex;
-      gap:10px;
-      align-items:center;
-      padding:12px 14px;
-      flex-wrap:wrap;
-      position:relative;
-    }
-    .ticker-title{
-      font-size:12px;
-      font-weight:950;
-      letter-spacing:0.12em;
-      text-transform:uppercase;
-      color:var(--muted);
-      margin-right:6px;
-    }
-    .ticker-item{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:8px 10px;
-      border-radius:999px;
-      border:1px solid var(--border);
-      background:var(--soft);
-      font-size:12px;
-      font-weight:900;
-      letter-spacing:-0.01em;
-      color:var(--ink);
-    }
-    .ticker-time{
-      margin-left:auto;
-      font-size:12px;
-      font-weight:800;
-      color:var(--muted);
-      letter-spacing:-0.01em;
-    }
-
+    /* ===== Sections ===== */
     .section{padding:56px 0}
-    .soft{background:var(--soft)}
     .kicker{
-      font-size: var(--fs-mini);
+      font-size:var(--fs-mini);
       letter-spacing:.18em;
       text-transform:uppercase;
       color:var(--muted);
-      font-weight:800;
+      font-weight:900;
     }
-    .sub{
-      margin-top:14px;
-      color:var(--muted);
-      line-height: var(--lh-body);
-      letter-spacing: var(--track-body);
-      font-weight:500;
-      max-width:78ch;
-    }
-    .row-between{display:flex; align-items:flex-end; justify-content:space-between; gap:18px; flex-wrap:wrap}
+    .sub{margin-top:12px; color:var(--muted); max-width:78ch}
 
+    /* ===== Price ===== */
+    .row-between{display:flex; align-items:flex-end; justify-content:space-between; gap:16px; flex-wrap:wrap}
     .tabs{
       display:inline-flex; gap:6px;
-      padding:6px; border:1px solid var(--border);
-      background:#fff; border-radius:18px;
+      padding:6px;
+      border:1px solid var(--border);
+      background:#fff;
+      border-radius:18px;
       box-shadow: var(--shadow);
     }
     .tab{
       border:0; background:transparent; cursor:pointer;
-      padding:10px 12px; border-radius:16px;
-      font-weight:850; font-size:13px; color:var(--muted);
-      letter-spacing:-0.005em;
+      padding:10px 12px;
+      border-radius:16px;
+      font-weight:900;
+      font-size:13px;
+      color:var(--muted);
       transition: background .2s var(--ease), color .2s var(--ease), transform .2s var(--ease);
     }
-    .tab:hover{color:var(--ink); transform: translateY(-1px)}
-    .tab.active{
-      background:var(--ink); color:#fff;
-      box-shadow: 0 10px 30px rgba(11,15,23,.18);
-    }
+    .tab:hover{color:var(--ink); transform:translateY(-1px)}
+    .tab.active{background:var(--ink); color:#fff; box-shadow: 0 10px 30px rgba(11,15,23,.18);}
 
     .grid{margin-top:18px; display:grid; gap:14px; grid-template-columns:repeat(1,1fr)}
     .card{
       border:1px solid var(--border);
       background:#fff;
-      border-radius:var(--radius);
+      border-radius:24px;
       padding:18px;
       box-shadow: var(--shadow);
-      transition:transform .22s var(--ease), box-shadow .22s var(--ease), border-color .22s var(--ease);
-      position:relative;
-      overflow:hidden;
+      transition: transform .22s var(--ease), box-shadow .22s var(--ease), border-color .22s var(--ease);
     }
-    .card::after{
-      content:"";
-      position:absolute;
-      inset:-60% -60%;
-      background: radial-gradient(circle at 30% 30%, rgba(225,6,19,.08), transparent 55%);
-      opacity:0;
-      transition: opacity .22s var(--ease);
-      pointer-events:none;
-    }
-    .card:hover{
-      transform: translateY(-2px);
-      box-shadow: var(--shadow2);
-      border-color: rgba(225,6,19,.25);
-    }
-    .card:hover::after{opacity:1}
-
-    .title{
-      display:flex; align-items:center; gap:10px;
-      font-size:16px;
-      font-weight:950;
-      letter-spacing:-0.02em;
-    }
-    .badge{
-      display:inline-flex; align-items:center;
-      padding:6px 10px; border-radius:999px;
-      font-size:12px; font-weight:900;
-      letter-spacing:-0.01em;
-      background:var(--soft); border:1px solid var(--border);
-    }
+    .card:hover{transform:translateY(-2px); box-shadow: var(--shadow2); border-color: rgba(225,6,19,.25);}
+    .title{display:flex; align-items:center; gap:10px; font-size:16px; font-weight:950; letter-spacing:-0.02em;}
+    .badge{display:inline-flex; padding:6px 10px; border-radius:999px; font-size:12px; font-weight:950; background:var(--soft); border:1px solid var(--border); margin-top:10px;}
 
     .rows{margin-top:14px; display:flex; flex-direction:column; gap:10px}
     .row{
@@ -545,30 +320,9 @@
       padding:12px 14px;
       display:flex; justify-content:space-between; align-items:center;
       background:#fff;
-      transition: border-color .2s var(--ease);
     }
-    .card:hover .row{border-color: rgba(11,15,23,.12)}
-    .w{font-size:13px; font-weight:800; color:var(--muted); letter-spacing:-0.005em}
-    .p{
-      font-size:16px;
-      font-weight:900;
-      font-variant-numeric: tabular-nums slashed-zero;
-      letter-spacing:-0.01em;
-    }
-
-    .line-title{margin-top:22px}
-    .line-title__h{
-      font-size:20px;
-      font-weight:950;
-      letter-spacing:-0.02em;
-      line-height:1.25;
-    }
-    .line-title__d{
-      margin-top:6px;
-      color:var(--muted);
-      font-weight:500;
-      letter-spacing: var(--track-body);
-    }
+    .w{font-size:13px; font-weight:850; color:var(--muted)}
+    .p{font-size:16px; font-weight:950; letter-spacing:-0.01em; font-variant-numeric: tabular-nums slashed-zero;}
 
     .note{
       margin-top:16px;
@@ -586,10 +340,11 @@
       background:var(--ink);
       flex:0 0 auto;
     }
-    .note .txt .h{font-weight:900; letter-spacing:-0.01em}
-    .note .txt .d{margin-top:4px; color:var(--muted); line-height:1.65; letter-spacing: var(--track-body)}
+    .note .h{font-weight:950; letter-spacing:-0.01em}
+    .note .d{margin-top:4px; color:var(--muted)}
 
-    .order{display:grid; gap:14px; grid-template-columns:1fr; margin-top:18px}
+    /* ===== Order minimal ===== */
+    .order-wrap{display:grid; gap:14px; grid-template-columns:1fr; margin-top:18px}
     .panel{
       border:1px solid var(--border);
       border-radius:28px;
@@ -597,19 +352,9 @@
       background:#fff;
       box-shadow: var(--shadow);
     }
-    .panel h3{
-      margin:0;
-      font-size:18px;
-      font-weight:950;
-      letter-spacing:-0.02em;
-      line-height:1.2;
-    }
-    .panel .hint{
-      margin-top:8px;
-      color:var(--muted);
-      font-size:13px;
-      line-height:1.6;
-    }
+    .panel h3{margin:0; font-size:18px; font-weight:950; letter-spacing:-0.02em}
+    .hint{margin-top:8px; color:var(--muted); font-size:13px; line-height:1.6}
+
     .form{margin-top:14px; display:grid; gap:12px; grid-template-columns:1fr}
     .field{display:grid; gap:6px}
     .label{
@@ -617,7 +362,7 @@
       letter-spacing:0.12em;
       text-transform:uppercase;
       color:var(--muted);
-      font-weight:850;
+      font-weight:900;
     }
     select, input{
       width:100%;
@@ -628,7 +373,6 @@
       font-weight:600;
       letter-spacing:-0.01em;
       background:#fff;
-      outline:none;
       transition:border-color .2s var(--ease), box-shadow .2s var(--ease);
     }
     select:focus, input:focus{
@@ -636,35 +380,7 @@
       box-shadow: 0 14px 50px rgba(225,6,19,.10);
     }
 
-    .presets{
-      margin-top:12px;
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-    .chip{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:10px 12px;
-      border-radius:999px;
-      border:1px solid var(--border);
-      background:var(--soft);
-      font-size:12px;
-      font-weight:950;
-      letter-spacing:-0.01em;
-      cursor:pointer;
-      transition: transform .18s var(--ease), border-color .18s var(--ease), box-shadow .18s var(--ease), background .18s var(--ease);
-      user-select:none;
-    }
-    .chip:hover{
-      transform: translateY(-1px);
-      border-color: rgba(225,6,19,.25);
-      box-shadow: 0 18px 55px rgba(225,6,19,.10);
-      background:#fff;
-    }
-
-    .order-summary{display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-top:14px}
+    .summary{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
     .total{
       flex:1 1 240px;
       border:1px solid var(--border);
@@ -673,11 +389,67 @@
       padding:12px 14px;
       display:flex; align-items:center; justify-content:space-between; gap:12px;
     }
-    .total .t{font-size:12px; font-weight:900; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted)}
+    .total .t{font-size:12px; font-weight:950; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted)}
     .total .v{font-size:18px; font-weight:950; letter-spacing:-0.02em; font-variant-numeric: tabular-nums slashed-zero}
-    .order-actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
 
-    .dept-grid{margin-top:18px; display:grid; gap:14px; grid-template-columns:repeat(1,1fr);}
+    .channel{
+      margin-top:12px;
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .seg{
+      display:inline-flex;
+      padding:6px;
+      gap:6px;
+      border:1px solid var(--border);
+      background:#fff;
+      border-radius:18px;
+      box-shadow: var(--shadow);
+    }
+    .seg button{
+      border:0; background:transparent; cursor:pointer;
+      padding:10px 12px;
+      border-radius:16px;
+      font-weight:950;
+      font-size:13px;
+      color:var(--muted);
+      transition: background .2s var(--ease), color .2s var(--ease), transform .2s var(--ease);
+    }
+    .seg button:hover{color:var(--ink); transform:translateY(-1px)}
+    .seg button.active{background:var(--ink); color:#fff; box-shadow: 0 10px 30px rgba(11,15,23,.18);}
+
+    .send-row{
+      margin-top:12px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .send-row .btn{flex:1 1 220px}
+    .tiny-actions{margin-top:10px; display:flex; gap:10px; flex-wrap:wrap}
+    .tiny-actions .btn{padding:12px 14px; border-radius:16px}
+
+    /* ===== Trust ===== */
+    .trust{
+      margin-top:18px;
+      display:grid;
+      gap:12px;
+      grid-template-columns: 1fr;
+    }
+    .trust-item{
+      border:1px solid var(--border);
+      background:#fff;
+      border-radius:24px;
+      padding:16px 16px;
+      box-shadow: var(--shadow);
+    }
+    .trust-item .t{font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:var(--muted); font-weight:950}
+    .trust-item .v{margin-top:8px; font-size:15px; font-weight:900; letter-spacing:-0.02em}
+    .trust-item .d{margin-top:6px; color:var(--muted); font-size:13px}
+
+    /* ===== Departments ===== */
+    .dept-grid{margin-top:18px; display:grid; gap:14px; grid-template-columns:repeat(1,1fr)}
     .dept{
       border:1px solid var(--border);
       border-radius:28px;
@@ -689,20 +461,10 @@
       transition: transform .22s var(--ease), box-shadow .22s var(--ease), border-color .22s var(--ease);
       min-height: 190px;
     }
-    .dept::before{
-      content:"";
-      position:absolute; inset:0;
-      background:
-        radial-gradient(circle at 22% 18%, rgba(225,6,19,.12), transparent 55%),
-        radial-gradient(circle at 85% 20%, rgba(11,15,23,.10), transparent 60%);
-      opacity:0;
-      transition: opacity .22s var(--ease);
-      pointer-events:none;
-    }
+    .dept:hover{transform:translateY(-2px); box-shadow: var(--shadow2); border-color: rgba(225,6,19,.25);}
     .dept::after{
       content:"";
-      position:absolute;
-      width:320px; height:320px;
+      position:absolute; width:320px; height:320px;
       right:-180px; top:-190px;
       background:var(--red);
       opacity:.06;
@@ -710,19 +472,10 @@
       border-radius:999px;
       pointer-events:none;
     }
-    .dept:hover{
-      transform: translateY(-2px);
-      box-shadow: var(--shadow2);
-      border-color: rgba(225,6,19,.25);
-    }
-    .dept:hover::before{opacity:1}
-
     .dept-media{
       position:absolute;
-      right:-34px;
-      top:-34px;
-      width:200px;
-      height:200px;
+      right:-34px; top:-34px;
+      width:200px; height:200px;
       border-radius:34px;
       overflow:hidden;
       border:1px solid rgba(255,255,255,.55);
@@ -739,64 +492,15 @@
         linear-gradient(180deg, rgba(11,15,23,.06), rgba(11,15,23,.22));
       pointer-events:none;
     }
-    .dept-media img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      transform: scale(1.05);
-      transition: transform .35s var(--ease), filter .35s var(--ease);
-    }
-    .dept:hover .dept-media img{
-      transform: scale(1.12);
-      filter: saturate(1.08) contrast(1.03);
-    }
+    .dept-media img{width:100%; height:100%; object-fit:cover; transform:scale(1.06); transition: transform .35s var(--ease), filter .35s var(--ease);}
+    .dept:hover .dept-media img{transform:scale(1.12); filter:saturate(1.08) contrast(1.03)}
 
-    .dept .top{
-      display:flex;
-      justify-content:space-between;
-      align-items:flex-start;
-      gap:12px;
-      position:relative;
-      padding-right: 140px;
-    }
-    .dept .name{font-size:18px; font-weight:950; letter-spacing:-0.02em;}
-    .dept .desc{margin-top:8px; color:var(--muted); line-height:1.65; font-size:13px; font-weight:500;}
-    .soon{
-      display:inline-flex;
-      padding:6px 10px;
-      border-radius:999px;
-      background:var(--ink);
-      color:#fff;
-      font-weight:900;
-      font-size:12px;
-      letter-spacing:-0.01em;
-      align-self:flex-start;
-    }
-    .dept-cta{
-      margin-top:14px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      position:relative;
-    }
-    .dept-cta .hint{display:flex; align-items:center; gap:10px; font-size:12px; font-weight:900; letter-spacing:-0.01em;}
-    .icon-circle{
-      width:46px;
-      height:46px;
-      border-radius:18px;
-      border:1px solid var(--border);
-      background: linear-gradient(180deg, #fff, #fbfcff);
-      box-shadow: 0 14px 40px rgba(11,15,23,.08);
-      display:grid;
-      place-items:center;
-      transition: transform .22s var(--ease), border-color .22s var(--ease), box-shadow .22s var(--ease);
-      flex:0 0 auto;
-    }
-    .arrow{width:18px; height:18px; stroke: var(--ink); transition: transform .22s var(--ease), stroke .22s var(--ease);}
-    .dept:hover .icon-circle{transform: translateY(-1px); border-color: rgba(225,6,19,.25); box-shadow: 0 20px 70px rgba(225,6,19,.12);}
-    .dept:hover .arrow{transform: translateX(2px); stroke: var(--red);}
+    .dept .top{display:flex; justify-content:space-between; align-items:flex-start; gap:12px; padding-right:140px}
+    .dept .name{font-size:18px; font-weight:950; letter-spacing:-0.02em}
+    .dept .desc{margin-top:8px; color:var(--muted); font-size:13px; line-height:1.65}
+    .soon{display:inline-flex; padding:6px 10px; border-radius:999px; background:var(--ink); color:#fff; font-weight:950; font-size:12px; letter-spacing:-0.01em}
 
+    /* ===== Dark delivery ===== */
     .dark{
       background:var(--ink);
       color:#fff;
@@ -815,16 +519,15 @@
     .dark .panel{
       border:1px solid rgba(255,255,255,.10);
       background:rgba(255,255,255,.06);
-      border-radius:32px;
-      padding:18px;
       box-shadow: 0 22px 80px rgba(0,0,0,.35);
-      position:relative;
     }
 
+    /* ===== Footer ===== */
     footer{padding:26px 0}
     .footer-row{display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap}
     .fine{margin-top:12px; color:var(--muted); font-size:12px}
 
+    /* ===== Sticky mobile ===== */
     .stickybar{
       position:fixed; left:16px; right:16px;
       bottom: calc(12px + env(safe-area-inset-bottom));
@@ -839,6 +542,7 @@
     }
     .spacer{height: calc(86px + env(safe-area-inset-bottom));}
 
+    /* Toast */
     .toast-wrap{
       position:fixed;
       left:16px; right:16px;
@@ -849,7 +553,6 @@
       pointer-events:none;
     }
     .toast{
-      pointer-events:none;
       display:inline-flex;
       align-items:center;
       gap:10px;
@@ -870,99 +573,97 @@
     .toast.on{opacity:1; transform: translateY(0px)}
     .toast .small{font-weight:800; color:var(--muted); font-size:12px}
 
+    /* Modal (lightbox) */
+    .modal{
+      position:fixed;
+      inset:0;
+      background: rgba(11,15,23,.72);
+      backdrop-filter: blur(10px);
+      z-index:200;
+      display:none;
+      padding:18px;
+    }
+    .modal.on{display:grid; place-items:center}
+    .modal-card{
+      width:min(980px, 100%);
+      background:#fff;
+      border-radius:26px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.18);
+      box-shadow: 0 32px 120px rgba(0,0,0,.45);
+      position:relative;
+    }
+    .modal-card img{display:block; width:100%; height:auto}
+    .modal-close{
+      position:absolute; top:12px; right:12px;
+      width:44px; height:44px;
+      border-radius:16px;
+      border:1px solid rgba(0,0,0,.10);
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(10px);
+      cursor:pointer;
+      display:grid; place-items:center;
+      font-weight:950;
+    }
+
+    /* Responsive */
     @media (min-width: 860px){
       nav{display:flex}
       .header-phone{display:inline-flex}
-      .hero{padding:72px 0 40px}
       .hero-grid{grid-template-columns: 1.08fr .92fr; gap:34px}
       .grid{grid-template-columns:repeat(4,1fr); gap:18px}
-      .dept-grid{grid-template-columns:repeat(3,1fr); gap:18px}
-      .stickybar{display:none}
-      .spacer{display:none}
-      .brand img{width:104px;height:104px}
-      .order{grid-template-columns: 1.1fr .9fr}
-      .toast-wrap{bottom: 18px}
+      .dept-grid{grid-template-columns:repeat(4,1fr); gap:18px}
+      .trust{grid-template-columns:repeat(3,1fr)}
+      .stickybar, .spacer{display:none}
+      .order-wrap{grid-template-columns: 1.15fr .85fr}
     }
 
-    /* Мобила: шапка минимальная, действия внизу */
     @media (max-width: 860px){
-      #qrOpenTop, #waTop { display:none !important; }
+      .brand img{width:78px; height:78px}
+      /* на мобиле шапка чистая: только Telegram */
+      #waTop, #qrTop { display:none !important; }
 
-      .header-row { padding: 12px 0; }
-      .brand img { width: 76px; height: 76px; }
-      .header-actions { flex-wrap: nowrap; }
-      .header-actions .btn { padding: 12px 14px; border-radius: 16px; }
-
-      /* В заказе на мобиле оставляем только WA + TG */
-      #nativeShareOrder,
-      #copyOrder,
-      #saveOrder,
-      #saveFav,
-      #saveContact,
-      #qrOpenOrder,
-      #callOrder { display:none !important; }
-
-      .order-actions{
-        display:grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
-        align-items: stretch;
-      }
-      .order-actions .btn{
-        width:100%;
-        min-height: 52px;
-        padding: 14px 14px;
-        justify-content:center;
-      }
-
-      /* чтобы stickybar не перекрывал кнопки/итого */
+      /* чтобы stickybar не перекрывал форму/кнопку */
       #order{ padding-bottom: calc(56px + 110px + env(safe-area-inset-bottom)); }
-    }
 
-    @media (max-width: 420px){
-      .mini-grid{grid-template-columns:repeat(2, minmax(0,1fr))}
-      .mini{min-height:78px}
+      .send-row{display:grid; grid-template-columns:1fr; gap:10px}
+      .mini-grid{grid-template-columns:repeat(2, minmax(0, 1fr))}
     }
 
     @media (prefers-reduced-motion: reduce){
       *{animation:none !important; transition:none !important; scroll-behavior:auto !important;}
-      .reveal{opacity:1 !important; transform:none !important;}
-      .cursor-glow{display:none !important;}
-      .progress{display:none !important;}
     }
   </style>
 </head>
 
 <body>
-  <div class="progress" aria-hidden="true"><span id="prog"></span></div>
-  <div class="cursor-glow" aria-hidden="true"></div>
-
   <header>
     <div class="container">
       <div class="header-row">
         <div class="brand">
-          <img src="logo.png" alt="Логотип" decoding="async" />
+          <img src="logo.png" alt="Логотип" decoding="async">
         </div>
 
         <nav>
-          <a href="#price">Красная икра</a>
-          <a href="#order">Быстрый заказ</a>
-          <a href="#kamchatka">О нас</a>
+          <a href="#price">Прайс</a>
+          <a href="#order">Заказ</a>
+          <a href="#trust">Почему доверяют</a>
           <a href="#departments">Отделы</a>
           <a href="#delivery">Доставка</a>
         </nav>
 
         <div class="header-actions">
           <a class="header-phone" href="tel:+79104788080">+7 910 478-80-80</a>
-          <button class="btn btn-ghost shimmer" id="qrOpenTop" type="button">QR</button>
-          <a class="btn btn-secondary shimmer" id="waTop" href="#" rel="noreferrer">WhatsApp</a>
-          <a class="btn btn-primary shimmer" href="https://t.me/+epLhD48KRgg3YzZi" target="_blank" rel="noreferrer">Telegram</a>
+          <button class="btn btn-ghost" id="qrTop" type="button">QR</button>
+          <a class="btn btn-secondary" id="waTop" href="#" target="_blank" rel="noreferrer">WhatsApp</a>
+          <a class="btn btn-primary" href="https://t.me/+epLhD48KRgg3YzZi" target="_blank" rel="noreferrer">Telegram</a>
         </div>
       </div>
     </div>
   </header>
 
   <main>
+    <!-- HERO -->
     <section class="hero">
       <div class="blob1"></div>
       <div class="blob2"></div>
@@ -970,94 +671,80 @@
       <div class="container">
         <div class="hero-grid">
           <div>
-            <div style="display:flex; gap:10px; flex-wrap:wrap">
+            <div class="pillbar">
               <span class="pill">Москва</span>
               <span class="pill">МО</span>
               <span class="pill">Троицк</span>
               <span class="pill">Новые Ватутинки</span>
-              <span class="pill"><span class="dot"></span>Документы: есть</span>
+              <span class="pill"><span class="dot"></span>Документы: по запросу</span>
             </div>
 
-            <h1>
-              Камчатская <span class="grad-text">красная икра</span><br/>
+            <h1 style="margin-top:14px">
+              Камчатская <span class="grad">красная икра</span><br>
               высшей категории
             </h1>
 
-            <svg class="swoosh" viewBox="0 0 640 44" aria-hidden="true">
-              <path d="M18 28 C 170 6, 330 6, 622 24" fill="none" stroke="#E10613" stroke-width="8" stroke-linecap="round"/>
-            </svg>
-
             <p class="lead">
-              Мы родом с Камчатки — знаем икру по делу: качество, зерно, вкус и хранение.
+              Родом с Камчатки — знаем продукт по делу: зерно, вкус, солёность и хранение.
               Горбуша • Кета • Кижуч • Нерка <b>(по наличию)</b>.
             </p>
 
-            <div class="ticker shine" id="ticker">
-              <div class="ticker-row" id="tickerRow">
-                <div class="ticker-title">Наличие сегодня</div>
-                <div class="ticker-time" id="tickerTime"></div>
-              </div>
-            </div>
+            <div class="pillbar" id="availBar" aria-label="Наличие сегодня"></div>
 
             <div class="cta-row">
-              <a class="btn btn-primary shimmer" href="#order">Заказать за 20 секунд</a>
-              <a class="btn btn-secondary shimmer" href="#price">Смотреть прайс</a>
-              <button class="btn btn-ghost shimmer" id="nativeShareTop" type="button">Поделиться</button>
-              <a class="btn btn-ghost shimmer" href="tel:+79104788080">Позвонить</a>
+              <a class="btn btn-primary" href="#order">Оформить заявку</a>
+              <a class="btn btn-secondary" href="#price">Смотреть прайс</a>
+              <button class="btn btn-ghost" id="copyPriceTop" type="button">Скопировать прайс</button>
             </div>
-
-            <div class="kicker-row" id="availPills"></div>
           </div>
 
-          <div class="visual shine">
-            <div class="visual-top">
-              <div>Крупное зерно • Глянец • Чистый вкус</div>
+          <div class="visual">
+            <div style="display:flex; justify-content:space-between; align-items:center; font-size:var(--fs-mini); font-weight:900; letter-spacing:-0.005em; color:var(--muted)">
+              <div>Крупное зерно • Чистый вкус</div>
               <div class="dot"></div>
             </div>
 
-            <img class="hero-photo" src="hero.webp" alt="Красная икра" loading="eager" decoding="async"
-                 onerror="this.style.display='none'; this.insertAdjacentHTML('afterend','<div style=&quot;margin-top:12px;height:460px;border-radius:28px;border:1px solid var(--border);background:var(--soft);display:grid;place-items:center;color:var(--muted);font-weight:800&quot;>hero.webp не найден — положи файл рядом с index.html</div>');"/>
+            <img class="hero-photo" id="heroPhoto" src="hero.webp" alt="Красная икра" loading="eager" decoding="async"
+              onerror="this.style.display='none'; this.insertAdjacentHTML('afterend','<div style=&quot;margin-top:12px;height:460px;border-radius:28px;border:1px solid var(--border);background:var(--soft);display:grid;place-items:center;color:var(--muted);font-weight:900&quot;>hero.webp не найден — положи файл рядом с index.html</div>');"/>
 
             <div class="mini-grid" aria-label="Информация">
               <div class="mini"><div class="t">Контакт</div><div class="v">+7 910 478-80-80</div></div>
               <div class="mini"><div class="t">Формат</div><div class="v">Самовывоз / доставка</div></div>
-              <div class="mini"><div class="t">Документы</div><div class="v">По запросу</div></div>
+              <div class="mini"><div class="t">Оперативно</div><div class="v">Подтверждаем наличие</div></div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- PRICE -->
     <section id="price" class="section soft divider">
       <div class="container">
         <div class="row-between">
           <div>
             <div class="kicker">Прайс</div>
-            <h2>Выбирайте формат — подскажем лучший вариант</h2>
-            <svg class="swoosh" viewBox="0 0 640 44" aria-hidden="true">
-              <path d="M18 28 C 170 6, 330 6, 622 24" fill="none" stroke="#E10613" stroke-width="8" stroke-linecap="round"/>
-            </svg>
+            <h2 style="margin-top:10px">Две линии фасовки — выберите формат</h2>
             <p class="sub">
               Линия 1 — аккуратные банки. Линия 2 — выгоднее по цене за счёт упаковки.
-              Нерка обычно заканчивается первой — уточняйте наличие.
+              Нерка — по наличию.
             </p>
           </div>
 
           <div style="display:flex; gap:12px; align-items:center; flex-wrap:wrap">
             <div class="tabs" role="tablist" aria-label="Линии фасовки">
-              <button class="tab active" data-line="line1" type="button" role="tab" aria-selected="true">Фирменная фасовка</button>
-              <button class="tab" data-line="line2" type="button" role="tab" aria-selected="false">Свежая фасовка</button>
+              <button class="tab active" data-line="line1" type="button" role="tab" aria-selected="true">Линия 1</button>
+              <button class="tab" data-line="line2" type="button" role="tab" aria-selected="false">Линия 2</button>
             </div>
-            <button class="btn btn-ghost shimmer" type="button" id="copyPrice">Скопировать прайс</button>
+            <button class="btn btn-ghost" type="button" id="copyPrice">Скопировать прайс</button>
           </div>
         </div>
 
-        <div class="line-title" id="lineTitle"></div>
-        <div class="grid" id="priceGrid" style="margin-top:16px"></div>
+        <div style="margin-top:18px; color:var(--muted); font-weight:850; letter-spacing:-0.01em" id="lineTitle"></div>
+        <div class="grid" id="priceGrid" style="margin-top:14px"></div>
 
-        <div class="note shine">
+        <div class="note" style="margin-top:16px">
           <div class="icon">!</div>
-          <div class="txt">
+          <div>
             <div class="h">Самовывоз / доставка — по договорённости</div>
             <div class="d">Москва • МО • Троицк • Новые Ватутинки. Напишите — подберём фасовку и время.</div>
           </div>
@@ -1065,32 +752,17 @@
       </div>
     </section>
 
+    <!-- ORDER (minimal) -->
     <section id="order" class="section divider">
       <div class="container">
         <div class="kicker">Быстрый заказ</div>
-        <h2>Соберите заявку — и отправьте одним нажатием</h2>
-        <svg class="swoosh" viewBox="0 0 640 44" aria-hidden="true">
-          <path d="M18 28 C 170 6, 330 6, 622 24" fill="none" stroke="#E10613" stroke-width="8" stroke-linecap="round"/>
-        </svg>
-        <p class="sub">Вы выбираете вид икры и фасовку — мы подтверждаем наличие и время.</p>
+        <h2 style="margin-top:10px">Соберите заявку — и отправьте в один тап</h2>
+        <p class="sub">Только нужное: вид, фасовка, количество и комментарий. Мы подтверждаем наличие и время.</p>
 
-        <div class="order">
-          <div class="panel shine">
-            <h3>Калькулятор заявки</h3>
-            <div class="hint">Пресеты ниже — это быстрый выбор. Нерка — по наличию.</div>
-
-            <div class="presets" aria-label="Пресеты">
-              <button class="chip shimmer" type="button" data-preset="gift">🎁 На подарок (Линия 1)</button>
-              <button class="chip shimmer" type="button" data-preset="table">🍽️ На стол (500 г)</button>
-              <button class="chip shimmer" type="button" data-preset="try">✨ На пробу (минимум)</button>
-              <button class="chip shimmer" type="button" id="repeatOrder" style="display:none">↻ Повторить прошлый заказ</button>
-            </div>
-
-            <div class="presets" aria-label="Быстрые комментарии" style="margin-top:10px">
-              <button class="chip shimmer" type="button" data-qc="Сегодня к 18:00">⏱️ Сегодня к 18:00</button>
-              <button class="chip shimmer" type="button" data-qc="Нужна на подарок (подберите лучший вариант)">🎁 Нужна на подарок</button>
-              <button class="chip shimmer" type="button" data-qc="Подберите по вкусу (нежнее/ярче/крупнее)">✨ Подберите по вкусу</button>
-            </div>
+        <div class="order-wrap">
+          <div class="panel">
+            <h3>Заявка</h3>
+            <div class="hint">В комментарии можно указать район, когда нужно и “на подарок/на стол”.</div>
 
             <div class="form">
               <div class="field">
@@ -1118,16 +790,17 @@
 
               <div class="field">
                 <div class="label">Количество банок</div>
-                <input id="fQty" type="number" min="1" step="1" value="1" inputmode="numeric" />
+                <!-- value пустой: можно спокойно стереть и набрать любое -->
+                <input id="fQty" type="number" min="1" step="1" value="" placeholder="1" inputmode="numeric"/>
               </div>
 
               <div class="field">
                 <div class="label">Район / комментарий</div>
-                <input id="fComment" placeholder="Например: Троицк, сегодня к 18:00" maxlength="140" />
+                <input id="fComment" maxlength="140" placeholder="Например: Троицк, завтра, на подарок"/>
               </div>
             </div>
 
-            <div class="order-summary">
+            <div class="summary">
               <div class="total">
                 <div class="t">Цена за 1</div>
                 <div class="v" id="fUnit">—</div>
@@ -1138,52 +811,47 @@
               </div>
             </div>
 
-            <div class="order-actions">
-              <a class="btn btn-primary shimmer" id="sendWA" href="#" target="_blank" rel="noreferrer">Отправить в WhatsApp</a>
-              <a class="btn btn-secondary shimmer" id="sendTGShare" href="#" target="_blank" rel="noreferrer">Отправить в Telegram</a>
-
-              <button class="btn btn-ghost shimmer" type="button" id="nativeShareOrder">Поделиться</button>
-              <button class="btn btn-ghost shimmer" type="button" id="copyOrder">Скопировать заявку</button>
-              <button class="btn btn-ghost shimmer" type="button" id="saveOrder">Сохранить выбор</button>
-              <button class="btn btn-ghost shimmer" type="button" id="saveFav">⭐ В избранное</button>
-              <button class="btn btn-ghost shimmer" type="button" id="saveContact">Сохранить контакт</button>
-              <button class="btn btn-ghost shimmer" type="button" id="qrOpenOrder">QR</button>
-
-              <!-- важно: id нужен, чтобы скрывать на мобиле -->
-              <a class="btn btn-ghost shimmer" id="callOrder" href="tel:+79104788080">Позвонить</a>
+            <div class="channel">
+              <div class="kicker" style="margin:0">Канал</div>
+              <div class="seg" role="tablist" aria-label="Канал отправки">
+                <button id="chWA" class="active" type="button" role="tab" aria-selected="true">WhatsApp</button>
+                <button id="chTG" type="button" role="tab" aria-selected="false">Telegram</button>
+              </div>
             </div>
 
-            <div class="hint" style="margin-top:10px">
-              Telegram откроется в новом окне — выберите чат, куда отправить текст.
+            <div class="send-row">
+              <a class="btn btn-primary" id="sendMain" href="#" target="_blank" rel="noreferrer">Отправить в WhatsApp</a>
+              <button class="btn btn-ghost" id="copyOrder" type="button">Скопировать заявку</button>
             </div>
+
+            <div class="hint" style="margin-top:10px">Если хотите — можем подобрать вариант по бюджету и задаче.</div>
           </div>
 
-          <div class="panel shine">
-            <h3>Подбор “как сомелье”</h3>
-            <div class="hint">
-              Если не знаете, что взять — напишите “для бутербродов / на стол / на подарок” и бюджет — подберём.
-            </div>
-
-            <div class="rows" style="margin-top:14px">
-              <div class="row"><div class="w">Горбуша</div><div class="p">универсальная</div></div>
-              <div class="row"><div class="w">Кета</div><div class="p">крупнее зерно</div></div>
-              <div class="row"><div class="w">Кижуч</div><div class="p">ярче вкус</div></div>
-              <div class="row"><div class="w">Нерка</div><div class="p">самая ходовая</div></div>
-            </div>
+          <div class="panel">
+            <h3>Быстрые ответы</h3>
+            <div class="hint">Как мы работаем — коротко и прозрачно.</div>
 
             <div class="note" style="margin-top:14px">
               <div class="icon">1</div>
-              <div class="txt">
-                <div class="h">Как работаем</div>
-                <div class="d">1) Выбор → 2) Подтверждаем наличие → 3) Доставка/самовывоз по договорённости.</div>
+              <div>
+                <div class="h">Подтверждаем наличие</div>
+                <div class="d">Проверяем выбранный вид/фасовку и отвечаем по времени.</div>
+              </div>
+            </div>
+
+            <div class="note" style="margin-top:14px">
+              <div class="icon">2</div>
+              <div>
+                <div class="h">Самовывоз / доставка</div>
+                <div class="d">По договорённости — под ваш график.</div>
               </div>
             </div>
 
             <div class="note" style="margin-top:14px">
               <div class="icon">✓</div>
-              <div class="txt">
+              <div>
                 <div class="h">Документы</div>
-                <div class="d">Есть. По запросу покажем перед покупкой.</div>
+                <div class="d">По запросу. Перед покупкой покажем.</div>
               </div>
             </div>
           </div>
@@ -1191,111 +859,113 @@
       </div>
     </section>
 
-    <section id="kamchatka" class="section soft divider">
+    <!-- TRUST -->
+    <section id="trust" class="section soft divider">
       <div class="container">
-        <div class="kicker">Камчатка</div>
-        <h2>Мы родом с Камчатки — поэтому разбираемся</h2>
-        <svg class="swoosh" viewBox="0 0 640 44" aria-hidden="true">
-          <path d="M18 28 C 170 6, 330 6, 622 24" fill="none" stroke="#E10613" stroke-width="8" stroke-linecap="round"/>
-        </svg>
-        <p class="sub">
-          Для нас красная икра — не “просто продукт”. Мы знаем, какой должна быть структура зерна, вкус, солёность и как правильно хранить.
-          Поэтому честно говорим про наличие и подбираем под задачу.
-        </p>
+        <div class="kicker">Почему доверяют</div>
+        <h2 style="margin-top:10px">Минимум слов — максимум уверенности</h2>
+        <p class="sub">Без лишнего: происхождение, хранение, документы.</p>
+
+        <div class="trust">
+          <div class="trust-item">
+            <div class="t">Камчатка</div>
+            <div class="v">Родом с Камчатки</div>
+            <div class="d">Понимаем, какая должна быть икра по качеству и зерну.</div>
+          </div>
+          <div class="trust-item">
+            <div class="t">Хранение</div>
+            <div class="v">Контроль свежести</div>
+            <div class="d">Соблюдаем условия хранения и логистику.</div>
+          </div>
+          <div class="trust-item">
+            <div class="t">Документы</div>
+            <div class="v">По запросу</div>
+            <div class="d">Покажем перед покупкой — спокойно и честно.</div>
+          </div>
+        </div>
       </div>
     </section>
 
+    <!-- DEPARTMENTS -->
     <section id="departments" class="section divider">
       <div class="container">
-        <div class="kicker">Ассортимент</div>
-        <h2>Отделы — структура готова, дальше наполняем</h2>
-        <svg class="swoosh" viewBox="0 0 640 44" aria-hidden="true">
-          <path d="M18 28 C 170 6, 330 6, 622 24" fill="none" stroke="#E10613" stroke-width="8" stroke-linecap="round"/>
-        </svg>
-        <p class="sub">«Красная икра» — уже с прайсом и быстрым заказом. Остальные отделы — каркас.</p>
+        <div class="kicker">Отделы</div>
+        <h2 style="margin-top:10px">Сейчас — красная икра. Остальное — скоро.</h2>
+        <p class="sub">Каркас готов: дальше наполняем позициями и ценами.</p>
 
         <div class="dept-grid">
-          <a class="dept shine shimmer" href="#price">
+          <a class="dept" href="#price" aria-label="Красная икра">
             <div class="dept-media" aria-hidden="true"><img src="hero.webp" alt="" loading="lazy" decoding="async"></div>
             <div class="top">
               <div>
                 <div class="name">Красная икра</div>
-                <div class="desc">Фирменная / свежая фасовка + прайс + быстрый заказ.</div>
+                <div class="desc">Прайс + быстрый заказ.</div>
               </div>
-            </div>
-            <div class="dept-cta">
-              <div class="hint"><span class="dot"></span>Открыть раздел</div>
-              <div class="icon-circle" aria-hidden="true">
-                <svg class="arrow" viewBox="0 0 24 24" fill="none">
-                  <path d="M5 12h12M13 6l6 6-6 6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </div>
+              <span class="soon" style="background:#16a34a">готово</span>
             </div>
           </a>
 
-          <div class="dept shine shimmer" style="cursor:default">
+          <div class="dept" style="cursor:default">
             <div class="dept-media" aria-hidden="true"><img src="black.webp" alt="" loading="lazy" decoding="async" onerror="this.parentElement.style.display='none'"></div>
             <div class="top">
               <div>
                 <div class="name">Чёрная икра</div>
-                <div class="desc">Скоро добавим позиции, фасовку и цены.</div>
+                <div class="desc">Скоро добавим позиции и цены.</div>
               </div>
               <span class="soon">скоро</span>
             </div>
-            <div class="dept-cta">
-              <div class="hint"><span class="dot warn"></span>Раздел готовится</div>
-              <div class="icon-circle" aria-hidden="true">
-                <svg class="arrow" viewBox="0 0 24 24" fill="none">
-                  <path d="M5 12h12M13 6l6 6-6 6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </div>
-            </div>
           </div>
 
-          <div class="dept shine shimmer" style="cursor:default">
+          <div class="dept" style="cursor:default">
             <div class="dept-media" aria-hidden="true"><img src="crab.webp" alt="" loading="lazy" decoding="async" onerror="this.parentElement.style.display='none'"></div>
             <div class="top">
               <div>
                 <div class="name">Камчатский краб</div>
-                <div class="desc">Фаланга / клешни / мясо / наборы — в премиум-стиле.</div>
+                <div class="desc">Наборы и позиции — в премиум-формате.</div>
               </div>
               <span class="soon">скоро</span>
             </div>
-            <div class="dept-cta">
-              <div class="hint"><span class="dot warn"></span>Раздел готовится</div>
-              <div class="icon-circle" aria-hidden="true">
-                <svg class="arrow" viewBox="0 0 24 24" fill="none">
-                  <path d="M5 12h12M13 6l6 6-6 6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
+          </div>
+
+          <div class="dept" style="cursor:default">
+            <div class="dept-media" aria-hidden="true"><img src="seafood.webp" alt="" loading="lazy" decoding="async" onerror="this.parentElement.style.display='none'"></div>
+            <div class="top">
+              <div>
+                <div class="name">Морепродукты</div>
+                <div class="desc">Креветка, гребешок, рыба и деликатесы.</div>
               </div>
+              <span class="soon">скоро</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- DELIVERY -->
     <section id="delivery" class="section divider dark">
-      <div class="container" style="position:relative">
+      <div class="container">
         <div class="row-between" style="align-items:center">
           <div style="max-width:62ch; position:relative">
             <div class="kicker">Доставка</div>
-            <h2>Москва / МО / Троицк / Новые Ватутинки</h2>
-            <p class="sub">Самовывоз или доставка — по договорённости. Напишите: уточним наличие, фасовку и время.</p>
-            <div style="margin-top:18px; display:flex; gap:10px; flex-wrap:wrap">
-              <a class="btn shimmer" style="background:#fff;color:var(--ink);border:1px solid #fff; box-shadow:0 18px 55px rgba(0,0,0,.35)"
+            <h2 style="margin-top:10px">Москва / МО / Троицк / Новые Ватутинки</h2>
+            <p class="sub">Самовывоз или доставка — по договорённости. Напишите — подтвердим наличие и время.</p>
+
+            <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap">
+              <a class="btn" style="background:#fff;color:var(--ink);border:1px solid #fff; box-shadow:0 18px 55px rgba(0,0,0,.35)"
                  href="tel:+79104788080">Позвонить</a>
-              <a class="btn shimmer" style="background:#fff;color:var(--ink);border:1px solid #fff; box-shadow:0 18px 55px rgba(0,0,0,.35)"
+              <a class="btn" style="background:#fff;color:var(--ink);border:1px solid #fff; box-shadow:0 18px 55px rgba(0,0,0,.35)"
                  id="waBottom" href="#" target="_blank" rel="noreferrer">WhatsApp</a>
+              <a class="btn" style="background:#fff;color:var(--ink);border:1px solid #fff; box-shadow:0 18px 55px rgba(0,0,0,.35)"
+                 href="https://t.me/+epLhD48KRgg3YzZi" target="_blank" rel="noreferrer">Telegram</a>
             </div>
           </div>
 
           <div class="panel" style="max-width:520px">
-            <div style="font-weight:800; color:rgba(255,255,255,.7); letter-spacing:-0.01em">Что написать</div>
+            <div style="font-weight:900; color:rgba(255,255,255,.72); letter-spacing:-0.01em">Что написать</div>
             <div style="margin-top:12px; display:grid; gap:10px">
-              <div style="border:1px solid rgba(255,255,255,.10); background:rgba(0,0,0,.15); padding:12px 14px; border-radius:18px; color:rgba(255,255,255,.88)">1) Вид: горбуша / кета / кижуч / нерка</div>
-              <div style="border:1px solid rgba(255,255,255,.10); background:rgba(0,0,0,.15); padding:12px 14px; border-radius:18px; color:rgba(255,255,255,.88)">2) Фасовка: 200 / 300 / 500 г</div>
-              <div style="border:1px solid rgba(255,255,255,.10); background:rgba(0,0,0,.15); padding:12px 14px; border-radius:18px; color:rgba(255,255,255,.88)">3) Когда нужно: сегодня / завтра / дата</div>
-              <div style="border:1px solid rgba(255,255,255,.10); background:rgba(0,0,0,.15); padding:12px 14px; border-radius:18px; color:rgba(255,255,255,.88)">4) Адрес (если доставка) или самовывоз</div>
+              <div style="border:1px solid rgba(255,255,255,.10); background:rgba(0,0,0,.15); padding:12px 14px; border-radius:18px; color:rgba(255,255,255,.88)">1) Вид и фасовка</div>
+              <div style="border:1px solid rgba(255,255,255,.10); background:rgba(0,0,0,.15); padding:12px 14px; border-radius:18px; color:rgba(255,255,255,.88)">2) Количество</div>
+              <div style="border:1px solid rgba(255,255,255,.10); background:rgba(0,0,0,.15); padding:12px 14px; border-radius:18px; color:rgba(255,255,255,.88)">3) Район + когда нужно</div>
             </div>
           </div>
         </div>
@@ -1307,46 +977,64 @@
     <div class="container">
       <div class="footer-row">
         <div class="brand">
-          <img src="logo.png" alt="Логотип" style="width:56px;height:56px;object-fit:contain" decoding="async" onerror="this.style.display='none'"/>
+          <img src="logo.png" alt="Логотип" style="width:56px;height:56px;object-fit:contain" decoding="async" onerror="this.style.display='none'">
         </div>
         <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center">
-          <a class="btn btn-ghost shimmer" href="tel:+79104788080">+7 910 478-80-80</a>
-          <a class="btn btn-secondary shimmer" id="waFooter" href="#" target="_blank" rel="noreferrer">WhatsApp</a>
-          <a class="btn btn-primary shimmer" href="https://t.me/+epLhD48KRgg3YzZi" target="_blank" rel="noreferrer">Telegram</a>
+          <a class="btn btn-ghost" href="tel:+79104788080">+7 910 478-80-80</a>
+          <a class="btn btn-secondary" id="waFooter" href="#" target="_blank" rel="noreferrer">WhatsApp</a>
+          <a class="btn btn-primary" href="https://t.me/+epLhD48KRgg3YzZi" target="_blank" rel="noreferrer">Telegram</a>
         </div>
       </div>
-      <div class="fine">Самовывоз / доставка — по договорённости. Наличие нерки уточняйте.</div>
+      <div class="fine">Самовывоз / доставка — по договорённости. Нерка — по наличию.</div>
     </div>
   </footer>
 
+  <!-- Sticky mobile -->
   <div class="stickybar" aria-label="Быстрые действия">
-    <a class="btn btn-primary shimmer" style="flex:1" href="https://t.me/+epLhD48KRgg3YzZi" target="_blank" rel="noreferrer">Telegram</a>
-    <a class="btn btn-secondary shimmer" style="flex:1" id="waSticky" href="#" target="_blank" rel="noreferrer">WhatsApp</a>
-    <a class="btn btn-ghost shimmer" style="flex:1" href="tel:+79104788080">Позвонить</a>
+    <a class="btn btn-primary" style="flex:1" href="https://t.me/+epLhD48KRgg3YzZi" target="_blank" rel="noreferrer">Telegram</a>
+    <a class="btn btn-secondary" style="flex:1" id="waSticky" href="#" target="_blank" rel="noreferrer">WhatsApp</a>
+    <a class="btn btn-ghost" style="flex:1" href="tel:+79104788080">Позвонить</a>
   </div>
   <div class="spacer"></div>
 
+  <!-- Toast -->
   <div class="toast-wrap" aria-live="polite" aria-atomic="true">
     <div class="toast" id="toast"><span id="toastMsg">Готово</span> <span class="small" id="toastSub"></span></div>
   </div>
 
-  <script>
-    const TG_INVITE = "https://t.me/+epLhD48KRgg3YzZi";
-    const WHATSAPP_PHONE = "79104788080";
-    const PHONE_TEL = "+79104788080";
-    const STORAGE_KEY = "kamchatka_order_v2";
+  <!-- Lightbox -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-label="Фото">
+      <button class="modal-close" id="modalClose" type="button" aria-label="Закрыть">✕</button>
+      <img id="modalImg" alt="Фото" src="">
+    </div>
+  </div>
 
-    const $ = (sel, root=document) => root.querySelector(sel);
-    const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
-    const prefersReduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  <script>
+    // ===============================
+    // CONFIG
+    // ===============================
+    const TG_INVITE = "https://t.me/+epLhD48KRgg3YzZi";
+    const WHATSAPP_PHONE = "79104788080"; // без +
+    const PHONE_TEL = "+79104788080";
+
+    // ===============================
+    // Helpers
+    // ===============================
+    const $ = (s, r=document) => r.querySelector(s);
+    const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
+
+    function haptic(ms=10){ if (navigator.vibrate) navigator.vibrate(ms); }
 
     function waLink(text){ return "https://wa.me/" + WHATSAPP_PHONE + "?text=" + encodeURIComponent(text); }
     function tgShareLink(text){ return "https://t.me/share/url?text=" + encodeURIComponent(text); }
+
     function money(n){
       if (typeof n !== "number") return "Уточнить";
       return n.toLocaleString("ru-RU") + " ₽";
     }
 
+    // Toast
     let toastTimer = null;
     function toast(msg, sub=""){
       const t = $("#toast");
@@ -1360,6 +1048,7 @@
     async function copyToClipboard(text, okMsg="Скопировано ✅", sub=""){
       try{
         await navigator.clipboard.writeText(text);
+        haptic(10);
         toast(okMsg, sub);
         return true;
       }catch(e){
@@ -1371,6 +1060,7 @@
         ta.select();
         try{
           document.execCommand("copy");
+          haptic(10);
           toast(okMsg, sub);
           return true;
         }catch(_){
@@ -1382,25 +1072,26 @@
       }
     }
 
+    // ===============================
+    // Data
+    // ===============================
     const PRICE = {
       line1: {
         title: "Линия 1 — Фирменная фасовка",
-        subtitle: "Аккуратные банки. Удобно на подарок и на стол.",
         items: {
           gorb: { name:"Икра горбуши", sizes: { "200 г":1550, "500 г":3800 } },
-          keta: { name:"Икра кеты", sizes: { "200 г":1800, "500 г":4300 } },
-          kizh: { name:"Икра кижуча", sizes: { "200 г":1800, "500 г":4300 } },
-          nerka:{ name:"Икра нерки", sizes: {} }
+          keta: { name:"Икра кеты",     sizes: { "200 г":1800, "500 г":4300 } },
+          kizh: { name:"Икра кижуча",   sizes: { "200 г":1800, "500 г":4300 } },
+          nerka:{ name:"Икра нерки",    sizes: {} }
         }
       },
       line2: {
         title: "Линия 2 — Свежая фасовка",
-        subtitle: "Тот же продукт. Выгоднее по цене за счёт упаковки.",
         items: {
           gorb: { name:"Икра горбуши", sizes: { "300 г":2200, "500 г":3600 } },
-          keta: { name:"Икра кеты", sizes: { "300 г":2600, "500 г":4200 } },
-          kizh: { name:"Икра кижуча", sizes: { "300 г":2500, "500 г":4100 } },
-          nerka:{ name:"Икра нерки", sizes: {} }
+          keta: { name:"Икра кеты",     sizes: { "300 г":2600, "500 г":4200 } },
+          kizh: { name:"Икра кижуча",   sizes: { "300 г":2500, "500 г":4100 } },
+          nerka:{ name:"Икра нерки",    sizes: {} }
         }
       }
     };
@@ -1409,62 +1100,49 @@
       { name:"Горбуша", status:"ok" },
       { name:"Кета", status:"ok" },
       { name:"Кижуч", status:"ok" },
-      { name:"Нерка", status:"warn" }
+      { name:"Нерка", status:"warn" } // по наличию
     ];
 
-    function renderTicker(){
-      const row = $("#tickerRow");
-      const timeEl = $("#tickerTime");
-      row.querySelectorAll(".ticker-item").forEach(n => n.remove());
-
+    function renderAvail(){
+      const bar = $("#availBar");
+      bar.innerHTML = "";
       AVAIL.forEach(a => {
-        const dotClass = a.status === "ok" ? "ok" : (a.status === "warn" ? "warn" : "off");
-        const label = a.status === "ok" ? "в наличии" : (a.status === "warn" ? "уточнить" : "нет");
-        const el = document.createElement("div");
-        el.className = "ticker-item";
-        el.innerHTML = `<span class="dot ${dotClass}"></span>${a.name}: ${label}`;
-        row.insertBefore(el, timeEl);
-      });
-
-      const d = new Date();
-      const dd = d.toLocaleDateString("ru-RU", { day:"2-digit", month:"2-digit" });
-      timeEl.textContent = `обновлено ${dd}`;
-
-      const wrap = $("#availPills");
-      wrap.innerHTML = "";
-      AVAIL.forEach(a=>{
-        const dotClass = a.status === "ok" ? "ok" : (a.status==="warn" ? "warn" : "off");
-        const label = a.status === "ok" ? "обычно есть" : (a.status === "warn" ? "уточняйте" : "сейчас нет");
-        const span = document.createElement("span");
-        span.className = "pill";
-        span.innerHTML = `<span class="dot ${dotClass}"></span>${a.name}: ${label}`;
-        wrap.appendChild(span);
+        const d = document.createElement("span");
+        const dotClass = a.status === "ok" ? "ok" : "warn";
+        const label = a.status === "ok" ? "в наличии" : "по наличию";
+        d.className = "pill";
+        d.innerHTML = `<span class="dot ${dotClass}"></span>${a.name}: ${label}`;
+        bar.appendChild(d);
       });
     }
 
-    const waTextDefault = "Здравствуйте! Хочу заказать икру. Подскажите наличие и ближайшее время.";
+    // ===============================
+    // WhatsApp links
+    // ===============================
+    const waHello = "Здравствуйте! Хочу заказать икру. Подскажите наличие и ближайшее время.";
     ["waTop","waBottom","waFooter","waSticky"].forEach(id => {
       const el = document.getElementById(id);
-      if (el) el.href = waLink(waTextDefault);
+      if (el) el.href = waLink(waHello);
     });
 
+    // ===============================
+    // Price render
+    // ===============================
     const tabs = $$(".tab");
     const grid = $("#priceGrid");
     const lineTitle = $("#lineTitle");
 
     function renderPrice(lineKey){
       const d = PRICE[lineKey];
-      lineTitle.innerHTML = `
-        <div class="line-title__h">${d.title}</div>
-        <div class="line-title__d">${d.subtitle}</div>
-      `;
+      lineTitle.textContent = d.title;
 
       const order = ["gorb","keta","kizh","nerka"];
       grid.innerHTML = order.map(k => {
         const item = d.items[k];
         const sizes = item.sizes;
         const keys = Object.keys(sizes);
-        const badge = (k === "nerka") ? `<div style="margin-top:10px"><span class="badge">по наличию</span></div>` : "";
+
+        const badge = (k === "nerka") ? `<div class="badge">по наличию</div>` : "";
         const rows = keys.length
           ? keys.map(s => `
               <div class="row">
@@ -1480,11 +1158,9 @@
             `;
 
         return `
-          <div class="card shine shimmer">
-            <div>
-              <div class="title"><span class="dot"></span>${item.name}</div>
-              ${badge}
-            </div>
+          <div class="card">
+            <div class="title"><span class="dot"></span>${item.name}</div>
+            ${badge}
             <div class="rows">${rows}</div>
           </div>
         `;
@@ -1523,8 +1199,13 @@
       lines.push("WhatsApp: https://wa.me/" + WHATSAPP_PHONE);
       return lines.join("\n");
     }
-    $("#copyPrice").addEventListener("click", () => copyToClipboard(buildPriceText(), "Прайс скопирован ✅"));
 
+    $("#copyPrice").addEventListener("click", () => copyToClipboard(buildPriceText(), "Прайс скопирован ✅"));
+    $("#copyPriceTop").addEventListener("click", () => copyToClipboard(buildPriceText(), "Прайс скопирован ✅"));
+
+    // ===============================
+    // Order minimal
+    // ===============================
     const fLine = $("#fLine");
     const fFish = $("#fFish");
     const fSize = $("#fSize");
@@ -1532,8 +1213,25 @@
     const fComment = $("#fComment");
     const fUnit = $("#fUnit");
     const fTotal = $("#fTotal");
-    const sendWA = $("#sendWA");
-    const sendTGShare = $("#sendTGShare");
+
+    const chWA = $("#chWA");
+    const chTG = $("#chTG");
+    const sendMain = $("#sendMain");
+    const copyOrderBtn = $("#copyOrder");
+
+    let channel = "wa"; // wa | tg
+
+    function setChannel(next){
+      channel = next;
+      chWA.classList.toggle("active", channel === "wa");
+      chTG.classList.toggle("active", channel === "tg");
+      chWA.setAttribute("aria-selected", channel === "wa" ? "true" : "false");
+      chTG.setAttribute("aria-selected", channel === "tg" ? "true" : "false");
+      updateOrder();
+    }
+
+    chWA.addEventListener("click", () => setChannel("wa"));
+    chTG.addEventListener("click", () => setChannel("tg"));
 
     function syncOrderSizes(){
       const lineKey = fLine.value;
@@ -1566,7 +1264,7 @@
       return (typeof n === "number") ? n : null;
     }
 
-    /* ✅ FIX: не ломаем ввод количества */
+    // не ломаем ввод: пустое поле = 1 для расчёта, но не возвращаем 1 в процессе ввода
     function getQtyForCalc(){
       const raw = (fQty.value || "").trim();
       if (raw === "") return 1;
@@ -1619,41 +1317,15 @@
       fTotal.textContent = (u === null) ? "Уточнить" : money(u * qty);
 
       const text = buildOrderText();
-      sendWA.href = waLink(text);
-      sendTGShare.href = tgShareLink(text);
-    }
 
-    function setPreset(name){
-      if (name === "gift"){
-        fLine.value = "line1";
-        fFish.value = "keta";
-        syncOrderSizes();
-        const opts = Array.from(fSize.options).map(o => o.value);
-        fSize.value = opts.includes("200 г") ? "200 г" : (opts[0] || "");
-        fQty.value = "1";
+      if (channel === "wa"){
+        sendMain.textContent = "Отправить в WhatsApp";
+        sendMain.href = waLink(text);
+      }else{
+        sendMain.textContent = "Отправить в Telegram";
+        sendMain.href = tgShareLink(text);
       }
-      if (name === "table"){
-        syncOrderSizes();
-        const opts = Array.from(fSize.options).map(o => o.value);
-        fSize.value = opts.includes("500 г") ? "500 г" : (opts[0] || "");
-        fQty.value = "1";
-      }
-      if (name === "try"){
-        syncOrderSizes();
-        fSize.value = (fSize.options[0] && fSize.options[0].value) ? fSize.options[0].value : "";
-        fQty.value = "1";
-      }
-      updateOrder();
-      toast("Выбрано ✅", "Можно отправлять");
     }
-
-    $$("#order [data-preset]").forEach(btn => btn.addEventListener("click", () => setPreset(btn.dataset.preset)));
-    $$("#order [data-qc]").forEach(btn => btn.addEventListener("click", () => {
-      const v = btn.dataset.qc || "";
-      fComment.value = v;
-      updateOrder();
-      toast("Комментарий добавлен ✅");
-    }));
 
     fLine.addEventListener("change", () => { syncOrderSizes(); updateOrder(); });
     fFish.addEventListener("change", () => { syncOrderSizes(); updateOrder(); });
@@ -1662,52 +1334,56 @@
     fQty.addEventListener("blur", () => { normalizeQtyOnBlur(); updateOrder(); });
     fComment.addEventListener("input", updateOrder);
 
-    async function nativeShare(text){
-      if (navigator.share){
-        try{
-          await navigator.share({ text, title: "Камчатская красная икра" });
-          toast("Отправлено ✅");
-          return true;
-        }catch(e){ return false; }
-      }
-      await copyToClipboard(text, "Скопировано ✅", "Вставьте в WhatsApp/Telegram");
-      return true;
+    copyOrderBtn.addEventListener("click", async () => {
+      await copyToClipboard(buildOrderText(), "Заявка скопирована ✅", "Вставьте в чат");
+    });
+
+    sendMain.addEventListener("click", () => haptic(12));
+
+    // ===============================
+    // Lightbox
+    // ===============================
+    const modal = $("#modal");
+    const modalImg = $("#modalImg");
+    const modalClose = $("#modalClose");
+    const heroPhoto = $("#heroPhoto");
+
+    function openModal(src){
+      if (!src) return;
+      modal.classList.add("on");
+      modal.setAttribute("aria-hidden","false");
+      modalImg.src = src;
+      document.body.style.overflow = "hidden";
     }
-    $("#nativeShareTop").addEventListener("click", () =>
-      nativeShare("Камчатская красная икра (Москва/МО/Троицк/Новые Ватутинки)\n" + TG_INVITE)
-    );
-
-    if (!prefersReduced){
-      window.addEventListener("mousemove", (e) => {
-        const x = (e.clientX / window.innerWidth) * 100;
-        const y = (e.clientY / window.innerHeight) * 100;
-        document.documentElement.style.setProperty("--mx", x + "%");
-        document.documentElement.style.setProperty("--my", y + "%");
-      }, { passive:true });
-
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(en => { if (en.isIntersecting) en.target.classList.add("on"); });
-      }, { threshold: 0.12 });
-
-      $$("section, .card, .dept, .panel, footer, .ticker, .visual").forEach(el=>{
-        el.classList.add("reveal");
-        io.observe(el);
-      });
-
-      const bar = $("#prog");
-      window.addEventListener("scroll", () => {
-        const h = document.documentElement;
-        const sc = h.scrollTop || document.body.scrollTop;
-        const max = (h.scrollHeight - h.clientHeight) || 1;
-        const p = Math.max(0, Math.min(1, sc / max));
-        bar.style.width = (p * 100).toFixed(2) + "%";
-      }, { passive:true });
+    function closeModal(){
+      modal.classList.remove("on");
+      modal.setAttribute("aria-hidden","true");
+      modalImg.src = "";
+      document.body.style.overflow = "";
     }
+    if (heroPhoto){
+      heroPhoto.addEventListener("click", () => openModal(heroPhoto.getAttribute("src")));
+    }
+    modalClose.addEventListener("click", closeModal);
+    modal.addEventListener("click", (e) => { if (e.target === modal) closeModal(); });
+    window.addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal(); });
 
+    // ===============================
+    // Init
+    // ===============================
+    renderAvail();
     renderPrice("line1");
     syncOrderSizes();
     updateOrder();
-    renderTicker();
+
+    // QR (минимально: показываем QR на Telegram invite)
+    const qrBtn = $("#qrTop");
+    if (qrBtn){
+      qrBtn.addEventListener("click", async () => {
+        // простое: копируем ссылку, чтобы не лепить QR-генератор и не раздувать код
+        await copyToClipboard(TG_INVITE, "Ссылка на Telegram скопирована ✅");
+      });
+    }
   </script>
 
   <script type="application/ld+json">
