@@ -82,7 +82,6 @@
       outline-offset: 4px;
       border-radius: 14px;
     }
-    input:focus-visible, select:focus-visible, button:focus-visible { outline:none; }
 
     /* ===== Buttons ===== */
     .btn{
@@ -427,8 +426,6 @@
       flex-wrap:wrap;
     }
     .send-row .btn{flex:1 1 220px}
-    .tiny-actions{margin-top:10px; display:flex; gap:10px; flex-wrap:wrap}
-    .tiny-actions .btn{padding:12px 14px; border-radius:16px}
 
     /* ===== Trust ===== */
     .trust{
@@ -448,57 +445,165 @@
     .trust-item .v{margin-top:8px; font-size:15px; font-weight:900; letter-spacing:-0.02em}
     .trust-item .d{margin-top:6px; color:var(--muted); font-size:13px}
 
-    /* ===== Departments ===== */
-    .dept-grid{margin-top:18px; display:grid; gap:14px; grid-template-columns:repeat(1,1fr)}
+    /* ===== PREMIUM Departments (NEW) ===== */
+    .dept-grid{
+      margin-top:18px;
+      display:grid;
+      gap:14px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
     .dept{
       border:1px solid var(--border);
-      border-radius:28px;
-      padding:18px;
       background:#fff;
+      border-radius:26px;
+      overflow:hidden;
       box-shadow: var(--shadow);
+      transition: transform .22s var(--ease), box-shadow .22s var(--ease), border-color .22s var(--ease);
+      position:relative;
+      isolation:isolate;
+    }
+    .dept:hover{
+      transform: translateY(-2px);
+      box-shadow: var(--shadow2);
+      border-color: rgba(225,6,19,.25);
+    }
+    .dept:active{transform: translateY(0px)}
+
+    .dept-inner{
+      display:grid;
+      grid-template-columns: 1fr clamp(150px, 36%, 220px);
+      min-height: 172px;
+    }
+    .dept-text{
+      padding:18px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      justify-content:space-between;
+    }
+    .dept-top{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+    }
+    .dept-name{
+      font-size:18px;
+      font-weight:950;
+      letter-spacing:-0.02em;
+      line-height:1.2;
+    }
+    .dept-desc{
+      margin-top:8px;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.65;
+    }
+    .dept-badge{
+      flex:0 0 auto;
+      display:inline-flex;
+      align-items:center;
+      padding:8px 12px;
+      border-radius:999px;
+      font-weight:950;
+      font-size:12px;
+      letter-spacing:-0.01em;
+      border:1px solid rgba(11,15,23,.08);
+      background: rgba(255,255,255,.78);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 14px 40px rgba(11,15,23,.10);
+    }
+    .dept-badge.soon{color:#fff; background: rgba(11,15,23,.92); border-color: rgba(255,255,255,.08);}
+    .dept-badge.live{color:#fff; background: rgba(22,163,74,.95); border-color: rgba(255,255,255,.10);}
+
+    .dept-cta{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-top:4px;
+    }
+    .dept-cta .hint{
+      margin:0;
+      color:var(--muted);
+      font-weight:900;
+      letter-spacing:-0.01em;
+      font-size:12px;
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+    .dept-arrow{
+      width:44px; height:44px;
+      border-radius:16px;
+      border:1px solid var(--border);
+      background: linear-gradient(180deg, #fff, #fbfcff);
+      box-shadow: 0 14px 40px rgba(11,15,23,.08);
+      display:grid;
+      place-items:center;
+      transition: transform .22s var(--ease), border-color .22s var(--ease), box-shadow .22s var(--ease);
+      flex:0 0 auto;
+    }
+    .dept:hover .dept-arrow{
+      transform: translateY(-1px);
+      border-color: rgba(225,6,19,.25);
+      box-shadow: 0 20px 70px rgba(225,6,19,.12);
+    }
+    .dept svg{
+      width:18px; height:18px;
+      stroke: var(--ink);
+      transition: transform .22s var(--ease), stroke .22s var(--ease);
+    }
+    .dept:hover svg{
+      transform: translateX(2px);
+      stroke: var(--red);
+    }
+
+    .dept-media{
       position:relative;
       overflow:hidden;
-      transition: transform .22s var(--ease), box-shadow .22s var(--ease), border-color .22s var(--ease);
-      min-height: 190px;
-    }
-    .dept:hover{transform:translateY(-2px); box-shadow: var(--shadow2); border-color: rgba(225,6,19,.25);}
-    .dept::after{
-      content:"";
-      position:absolute; width:320px; height:320px;
-      right:-180px; top:-190px;
-      background:var(--red);
-      opacity:.06;
-      filter:blur(58px);
-      border-radius:999px;
-      pointer-events:none;
-    }
-    .dept-media{
-      position:absolute;
-      right:-34px; top:-34px;
-      width:200px; height:200px;
-      border-radius:34px;
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,.55);
-      box-shadow: 0 28px 90px rgba(11,15,23,.14);
-      transform: rotate(6deg);
       background: var(--soft);
     }
     .dept-media::after{
       content:"";
       position:absolute; inset:0;
       background:
-        linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,0) 45%),
-        radial-gradient(circle at 30% 30%, rgba(225,6,19,.16), transparent 55%),
-        linear-gradient(180deg, rgba(11,15,23,.06), rgba(11,15,23,.22));
+        radial-gradient(circle at 20% 20%, rgba(225,6,19,.18), transparent 55%),
+        linear-gradient(180deg, rgba(11,15,23,.00), rgba(11,15,23,.22));
       pointer-events:none;
+      opacity:.95;
     }
-    .dept-media img{width:100%; height:100%; object-fit:cover; transform:scale(1.06); transition: transform .35s var(--ease), filter .35s var(--ease);}
-    .dept:hover .dept-media img{transform:scale(1.12); filter:saturate(1.08) contrast(1.03)}
+    .dept-media img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transform: scale(1.03);
+      transition: transform .45s var(--ease), filter .45s var(--ease);
+      display:block;
+    }
+    .dept:hover .dept-media img{
+      transform: scale(1.10);
+      filter: saturate(1.07) contrast(1.03);
+    }
 
-    .dept .top{display:flex; justify-content:space-between; align-items:flex-start; gap:12px; padding-right:140px}
-    .dept .name{font-size:18px; font-weight:950; letter-spacing:-0.02em}
-    .dept .desc{margin-top:8px; color:var(--muted); font-size:13px; line-height:1.65}
-    .soon{display:inline-flex; padding:6px 10px; border-radius:999px; background:var(--ink); color:#fff; font-weight:950; font-size:12px; letter-spacing:-0.01em}
+    /* “Скоро” карточки — чуть спокойнее (без клика) */
+    .dept--soon{
+      cursor:default;
+    }
+    .dept--soon:hover{
+      transform:none;
+      box-shadow: var(--shadow);
+      border-color: var(--border);
+    }
+    .dept--soon .dept-arrow{
+      opacity:.55;
+      transform:none !important;
+      box-shadow: 0 14px 40px rgba(11,15,23,.06);
+    }
+    .dept--soon:hover svg{
+      transform:none;
+      stroke: var(--ink);
+    }
 
     /* ===== Dark delivery ===== */
     .dark{
@@ -612,7 +717,6 @@
       .header-phone{display:inline-flex}
       .hero-grid{grid-template-columns: 1.08fr .92fr; gap:34px}
       .grid{grid-template-columns:repeat(4,1fr); gap:18px}
-      .dept-grid{grid-template-columns:repeat(4,1fr); gap:18px}
       .trust{grid-template-columns:repeat(3,1fr)}
       .stickybar, .spacer{display:none}
       .order-wrap{grid-template-columns: 1.15fr .85fr}
@@ -628,6 +732,13 @@
 
       .send-row{display:grid; grid-template-columns:1fr; gap:10px}
       .mini-grid{grid-template-columns:repeat(2, minmax(0, 1fr))}
+
+      /* на мобиле отделы: фото сверху, текст ниже — очень премиум */
+      .dept-inner{
+        grid-template-columns: 1fr;
+        grid-template-rows: 170px auto;
+      }
+      .dept-media{min-height:170px}
     }
 
     @media (prefers-reduced-motion: reduce){
@@ -790,7 +901,6 @@
 
               <div class="field">
                 <div class="label">Количество банок</div>
-                <!-- value пустой: можно спокойно стереть и набрать любое -->
                 <input id="fQty" type="number" min="1" step="1" value="" placeholder="1" inputmode="numeric"/>
               </div>
 
@@ -828,8 +938,8 @@
           </div>
 
           <div class="panel">
-            <h3>Быстрые ответы</h3>
-            <div class="hint">Как мы работаем — коротко и прозрачно.</div>
+            <h3>Коротко по делу</h3>
+            <div class="hint">Прозрачно, без лишнего.</div>
 
             <div class="note" style="margin-top:14px">
               <div class="icon">1</div>
@@ -886,7 +996,7 @@
       </div>
     </section>
 
-    <!-- DEPARTMENTS -->
+    <!-- DEPARTMENTS (PREMIUM) -->
     <section id="departments" class="section divider">
       <div class="container">
         <div class="kicker">Отделы</div>
@@ -894,47 +1004,107 @@
         <p class="sub">Каркас готов: дальше наполняем позициями и ценами.</p>
 
         <div class="dept-grid">
+          <!-- LIVE -->
           <a class="dept" href="#price" aria-label="Красная икра">
-            <div class="dept-media" aria-hidden="true"><img src="hero.webp" alt="" loading="lazy" decoding="async"></div>
-            <div class="top">
-              <div>
-                <div class="name">Красная икра</div>
-                <div class="desc">Прайс + быстрый заказ.</div>
+            <div class="dept-inner">
+              <div class="dept-text">
+                <div>
+                  <div class="dept-top">
+                    <div class="dept-name">Красная икра</div>
+                    <span class="dept-badge live">готово</span>
+                  </div>
+                  <div class="dept-desc">Прайс + быстрый заказ. Подтверждаем наличие и время.</div>
+                </div>
+                <div class="dept-cta">
+                  <div class="hint"><span class="dot ok"></span>Открыть</div>
+                  <div class="dept-arrow" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                      <path d="M5 12h12M13 6l6 6-6 6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+                </div>
               </div>
-              <span class="soon" style="background:#16a34a">готово</span>
+              <div class="dept-media" aria-hidden="true">
+                <img src="hero.webp" alt="" loading="lazy" decoding="async">
+              </div>
             </div>
           </a>
 
-          <div class="dept" style="cursor:default">
-            <div class="dept-media" aria-hidden="true"><img src="black.webp" alt="" loading="lazy" decoding="async" onerror="this.parentElement.style.display='none'"></div>
-            <div class="top">
-              <div>
-                <div class="name">Чёрная икра</div>
-                <div class="desc">Скоро добавим позиции и цены.</div>
+          <!-- SOON -->
+          <div class="dept dept--soon" aria-label="Чёрная икра (скоро)">
+            <div class="dept-inner">
+              <div class="dept-text">
+                <div>
+                  <div class="dept-top">
+                    <div class="dept-name">Чёрная икра</div>
+                    <span class="dept-badge soon">скоро</span>
+                  </div>
+                  <div class="dept-desc">Скоро добавим позиции, фасовку и цены.</div>
+                </div>
+                <div class="dept-cta">
+                  <div class="hint"><span class="dot warn"></span>В разработке</div>
+                  <div class="dept-arrow" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                      <path d="M5 12h12M13 6l6 6-6 6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+                </div>
               </div>
-              <span class="soon">скоро</span>
+              <div class="dept-media" aria-hidden="true">
+                <img src="black.webp" alt="" loading="lazy" decoding="async" onerror="this.parentElement.style.background='#f6f8fb'">
+              </div>
             </div>
           </div>
 
-          <div class="dept" style="cursor:default">
-            <div class="dept-media" aria-hidden="true"><img src="crab.webp" alt="" loading="lazy" decoding="async" onerror="this.parentElement.style.display='none'"></div>
-            <div class="top">
-              <div>
-                <div class="name">Камчатский краб</div>
-                <div class="desc">Наборы и позиции — в премиум-формате.</div>
+          <!-- SOON -->
+          <div class="dept dept--soon" aria-label="Камчатский краб (скоро)">
+            <div class="dept-inner">
+              <div class="dept-text">
+                <div>
+                  <div class="dept-top">
+                    <div class="dept-name">Камчатский краб</div>
+                    <span class="dept-badge soon">скоро</span>
+                  </div>
+                  <div class="dept-desc">Наборы и позиции — в премиум-формате.</div>
+                </div>
+                <div class="dept-cta">
+                  <div class="hint"><span class="dot warn"></span>В разработке</div>
+                  <div class="dept-arrow" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                      <path d="M5 12h12M13 6l6 6-6 6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+                </div>
               </div>
-              <span class="soon">скоро</span>
+              <div class="dept-media" aria-hidden="true">
+                <img src="crab.webp" alt="" loading="lazy" decoding="async" onerror="this.parentElement.style.background='#f6f8fb'">
+              </div>
             </div>
           </div>
 
-          <div class="dept" style="cursor:default">
-            <div class="dept-media" aria-hidden="true"><img src="seafood.webp" alt="" loading="lazy" decoding="async" onerror="this.parentElement.style.display='none'"></div>
-            <div class="top">
-              <div>
-                <div class="name">Морепродукты</div>
-                <div class="desc">Креветка, гребешок, рыба и деликатесы.</div>
+          <!-- SOON -->
+          <div class="dept dept--soon" aria-label="Морепродукты (скоро)">
+            <div class="dept-inner">
+              <div class="dept-text">
+                <div>
+                  <div class="dept-top">
+                    <div class="dept-name">Морепродукты</div>
+                    <span class="dept-badge soon">скоро</span>
+                  </div>
+                  <div class="dept-desc">Креветка, гребешок, рыба и деликатесы.</div>
+                </div>
+                <div class="dept-cta">
+                  <div class="hint"><span class="dot warn"></span>В разработке</div>
+                  <div class="dept-arrow" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                      <path d="M5 12h12M13 6l6 6-6 6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+                </div>
               </div>
-              <span class="soon">скоро</span>
+              <div class="dept-media" aria-hidden="true">
+                <img src="seafood.webp" alt="" loading="lazy" decoding="async" onerror="this.parentElement.style.background='#f6f8fb'">
+              </div>
             </div>
           </div>
         </div>
@@ -1011,30 +1181,21 @@
   </div>
 
   <script>
-    // ===============================
-    // CONFIG
-    // ===============================
     const TG_INVITE = "https://t.me/+epLhD48KRgg3YzZi";
-    const WHATSAPP_PHONE = "79104788080"; // без +
+    const WHATSAPP_PHONE = "79104788080";
     const PHONE_TEL = "+79104788080";
 
-    // ===============================
-    // Helpers
-    // ===============================
     const $ = (s, r=document) => r.querySelector(s);
     const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
 
     function haptic(ms=10){ if (navigator.vibrate) navigator.vibrate(ms); }
-
     function waLink(text){ return "https://wa.me/" + WHATSAPP_PHONE + "?text=" + encodeURIComponent(text); }
     function tgShareLink(text){ return "https://t.me/share/url?text=" + encodeURIComponent(text); }
-
     function money(n){
       if (typeof n !== "number") return "Уточнить";
       return n.toLocaleString("ru-RU") + " ₽";
     }
 
-    // Toast
     let toastTimer = null;
     function toast(msg, sub=""){
       const t = $("#toast");
@@ -1072,9 +1233,6 @@
       }
     }
 
-    // ===============================
-    // Data
-    // ===============================
     const PRICE = {
       line1: {
         title: "Линия 1 — Фирменная фасовка",
@@ -1100,7 +1258,7 @@
       { name:"Горбуша", status:"ok" },
       { name:"Кета", status:"ok" },
       { name:"Кижуч", status:"ok" },
-      { name:"Нерка", status:"warn" } // по наличию
+      { name:"Нерка", status:"warn" }
     ];
 
     function renderAvail(){
@@ -1116,18 +1274,12 @@
       });
     }
 
-    // ===============================
-    // WhatsApp links
-    // ===============================
     const waHello = "Здравствуйте! Хочу заказать икру. Подскажите наличие и ближайшее время.";
     ["waTop","waBottom","waFooter","waSticky"].forEach(id => {
       const el = document.getElementById(id);
       if (el) el.href = waLink(waHello);
     });
 
-    // ===============================
-    // Price render
-    // ===============================
     const tabs = $$(".tab");
     const grid = $("#priceGrid");
     const lineTitle = $("#lineTitle");
@@ -1203,9 +1355,6 @@
     $("#copyPrice").addEventListener("click", () => copyToClipboard(buildPriceText(), "Прайс скопирован ✅"));
     $("#copyPriceTop").addEventListener("click", () => copyToClipboard(buildPriceText(), "Прайс скопирован ✅"));
 
-    // ===============================
-    // Order minimal
-    // ===============================
     const fLine = $("#fLine");
     const fFish = $("#fFish");
     const fSize = $("#fSize");
@@ -1219,7 +1368,7 @@
     const sendMain = $("#sendMain");
     const copyOrderBtn = $("#copyOrder");
 
-    let channel = "wa"; // wa | tg
+    let channel = "wa";
 
     function setChannel(next){
       channel = next;
@@ -1264,7 +1413,6 @@
       return (typeof n === "number") ? n : null;
     }
 
-    // не ломаем ввод: пустое поле = 1 для расчёта, но не возвращаем 1 в процессе ввода
     function getQtyForCalc(){
       const raw = (fQty.value || "").trim();
       if (raw === "") return 1;
@@ -1340,9 +1488,7 @@
 
     sendMain.addEventListener("click", () => haptic(12));
 
-    // ===============================
     // Lightbox
-    // ===============================
     const modal = $("#modal");
     const modalImg = $("#modalImg");
     const modalClose = $("#modalClose");
@@ -1368,19 +1514,15 @@
     modal.addEventListener("click", (e) => { if (e.target === modal) closeModal(); });
     window.addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal(); });
 
-    // ===============================
     // Init
-    // ===============================
     renderAvail();
     renderPrice("line1");
     syncOrderSizes();
     updateOrder();
 
-    // QR (минимально: показываем QR на Telegram invite)
     const qrBtn = $("#qrTop");
     if (qrBtn){
       qrBtn.addEventListener("click", async () => {
-        // простое: копируем ссылку, чтобы не лепить QR-генератор и не раздувать код
         await copyToClipboard(TG_INVITE, "Ссылка на Telegram скопирована ✅");
       });
     }
