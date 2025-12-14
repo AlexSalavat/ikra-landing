@@ -17,6 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@450;500;600;700;800;900&display=swap" rel="stylesheet">
+
   <link rel="preload" as="image" href="hero.webp" type="image/webp">
 
   <style>
@@ -445,99 +446,158 @@
     .trust-item .d{margin-top:6px; color:var(--muted); font-size:13px}
 
     /* =========================
-       PREMIUM Departments (A)
-       Единый фото-фрейм: одинаковый размер + одинаковая обработка
+       DEPARTMENTS — PREMIUM VITRINE (text under photo)
        ========================= */
     .dept-grid{
       margin-top:18px;
       display:grid;
-      gap:14px;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap:16px;
     }
-    .dept{
+    @media (min-width:1100px){
+      .dept-grid{ grid-template-columns: repeat(4, minmax(0,1fr)); }
+    }
+    @media (min-width:720px) and (max-width:1099px){
+      .dept-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+    }
+    @media (max-width:719px){
+      .dept-grid{ grid-template-columns: 1fr; }
+    }
+
+    .dept-card{
       border:1px solid var(--border);
       background:#fff;
-      border-radius:26px;
+      border-radius:28px;
       overflow:hidden;
       box-shadow: var(--shadow);
       transition: transform .22s var(--ease), box-shadow .22s var(--ease), border-color .22s var(--ease);
       position:relative;
       isolation:isolate;
     }
-    .dept:hover{
+    .dept-card:hover{
       transform: translateY(-2px);
       box-shadow: var(--shadow2);
       border-color: rgba(225,6,19,.25);
     }
-    .dept:active{transform: translateY(0px)}
+    .dept-card:active{ transform: translateY(0px); }
 
-    /* фиксируем размер медиа на десктопе (квадрат) */
-    .dept-inner{
-      display:grid;
-      grid-template-columns: 1fr 220px;
-      align-items:stretch;
-      gap:0;
+    .dept-media{
+      position:relative;
+      aspect-ratio: 16 / 11;
+      background: #eef1f6;
+      overflow:hidden;
     }
-    .dept-text{
-      padding:18px;
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
-      gap:14px;
-      min-height:220px; /* держит одинаковую высоту карточек */
+    .dept-media::after{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(225,6,19,.18), transparent 55%),
+        linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,0) 48%),
+        linear-gradient(180deg, rgba(11,15,23,.00), rgba(11,15,23,.22));
+      pointer-events:none;
+      opacity:.95;
     }
-    .dept-top{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:12px;
+    .dept-media::before{
+      content:"";
+      position:absolute;
+      inset:-30% -60%;
+      background: linear-gradient(115deg, transparent 40%, rgba(255,255,255,.22) 50%, transparent 60%);
+      transform: translateX(-30%);
+      opacity:0;
+      transition: opacity .25s var(--ease), transform .55s var(--ease);
+      pointer-events:none;
     }
-    .dept-name{
-      font-size:18px;
-      font-weight:950;
-      letter-spacing:-0.02em;
-      line-height:1.2;
+    .dept-card:hover .dept-media::before{
+      opacity:1;
+      transform: translateX(30%);
     }
-    .dept-desc{
-      margin-top:8px;
-      color:var(--muted);
-      font-size:13px;
-      line-height:1.65;
-      max-width: 34ch;
+
+    .dept-media img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center;
+      transform: scale(1.02);
+      transition: transform .45s var(--ease), filter .45s var(--ease);
+      filter: saturate(.98) contrast(1.06) brightness(1.01);
+      display:block;
+    }
+    .dept-card:hover .dept-media img{
+      transform: scale(1.07);
+      filter: saturate(1.05) contrast(1.08) brightness(1.03);
     }
 
     .dept-badge{
-      flex:0 0 auto;
+      position:absolute;
+      top:12px; left:12px;
       display:inline-flex;
       align-items:center;
+      gap:8px;
       padding:8px 12px;
       border-radius:999px;
       font-weight:950;
       font-size:12px;
       letter-spacing:-0.01em;
-      border:1px solid rgba(11,15,23,.08);
-      background: rgba(255,255,255,.78);
+      border:1px solid rgba(255,255,255,.22);
+      background: rgba(11,15,23,.86);
+      color:#fff;
       backdrop-filter: blur(10px);
-      box-shadow: 0 14px 40px rgba(11,15,23,.10);
+      box-shadow: 0 18px 50px rgba(11,15,23,.20);
+      z-index:2;
     }
-    .dept-badge.soon{color:#fff; background: rgba(11,15,23,.92); border-color: rgba(255,255,255,.08);}
-    .dept-badge.live{color:#fff; background: rgba(22,163,74,.95); border-color: rgba(255,255,255,.10);}
+    .dept-badge.live{ background: rgba(22,163,74,.92); }
+    .dept-badge span.dot{
+      width:9px; height:9px; border-radius:99px; background:#fff; opacity:.95;
+    }
 
-    .dept-cta{
+    .dept-body{
+      padding:16px 16px 14px;
+      min-height: 160px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      gap:10px;
+    }
+
+    .dept-title{
+      font-size:18px;
+      font-weight:950;
+      letter-spacing:-0.02em;
+      line-height:1.15;
+      margin:0;
+      min-height: 44px;
+      display:-webkit-box;
+      -webkit-line-clamp:2;
+      -webkit-box-orient:vertical;
+      overflow:hidden;
+    }
+
+    .dept-desc{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.6;
+      min-height: 42px;
+      display:-webkit-box;
+      -webkit-line-clamp:2;
+      -webkit-box-orient:vertical;
+      overflow:hidden;
+    }
+
+    .dept-footer{
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap:12px;
     }
-    .dept-cta .hint{
-      margin:0;
-      color:var(--muted);
-      font-weight:900;
-      letter-spacing:-0.01em;
-      font-size:12px;
+
+    .dept-status{
       display:flex;
       align-items:center;
       gap:8px;
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:-0.01em;
+      color:var(--muted);
     }
 
     .dept-arrow{
@@ -551,83 +611,34 @@
       transition: transform .22s var(--ease), border-color .22s var(--ease), box-shadow .22s var(--ease);
       flex:0 0 auto;
     }
-    .dept:hover .dept-arrow{
+
+    .dept-card:hover .dept-arrow{
       transform: translateY(-1px);
       border-color: rgba(225,6,19,.25);
       box-shadow: 0 20px 70px rgba(225,6,19,.12);
     }
-    .dept svg{
+
+    .dept-arrow svg{
       width:18px; height:18px;
       stroke: var(--ink);
       transition: transform .22s var(--ease), stroke .22s var(--ease);
     }
-    .dept:hover svg{
+    .dept-card:hover .dept-arrow svg{
       transform: translateX(2px);
       stroke: var(--red);
     }
 
-    /* единый премиум-фрейм для фото */
-    .dept-media{
-      width:220px;
-      height:220px;           /* строгий квадрат на ПК */
-      position:relative;
-      overflow:hidden;
-      background: #eef1f6;
-      border-left:1px solid var(--border);
-    }
-
-    /* стеклянный слой + брендовый градиент (унифицирует любые фотки) */
-    .dept-media::after{
-      content:"";
-      position:absolute; inset:0;
-      background:
-        radial-gradient(circle at 18% 18%, rgba(225,6,19,.18), transparent 55%),
-        linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,0) 45%),
-        linear-gradient(180deg, rgba(11,15,23,.00), rgba(11,15,23,.22));
-      pointer-events:none;
-      opacity:.95;
-    }
-    /* лёгкий “film grain” (очень премиум) */
-    .dept-media::before{
-      content:"";
-      position:absolute; inset:0;
-      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='.10'/%3E%3C/svg%3E");
-      mix-blend-mode:soft-light;
-      opacity:.22;
-      pointer-events:none;
-    }
-
-    .dept-media img{
-      width:100%;
-      height:100%;
-      object-fit:cover;       /* ключ: одинаковый кадр */
-      object-position:center; /* можно менять у конкретной фотки при желании */
-      transform: scale(1.02);
-      transition: transform .45s var(--ease), filter .45s var(--ease);
-      display:block;
-      filter: saturate(.95) contrast(1.06) brightness(.99);
-    }
-    .dept:hover .dept-media img{
-      transform: scale(1.08);
-      filter: saturate(1.03) contrast(1.08) brightness(1.02);
-    }
-
-    /* “Скоро” карточки — спокойные, без “нажатия” */
-    .dept--soon{cursor:default}
-    .dept--soon:hover{
+    .dept-card.soon{ cursor: default; }
+    .dept-card.soon:hover{
       transform:none;
       box-shadow: var(--shadow);
       border-color: var(--border);
     }
-    .dept--soon .dept-arrow{
-      opacity:.55;
-      transform:none !important;
-      box-shadow: 0 14px 40px rgba(11,15,23,.06);
-    }
-    .dept--soon:hover svg{
-      transform:none;
-      stroke: var(--ink);
-    }
+    .dept-card.soon .dept-arrow{ opacity:.55; }
+
+    /* точечные кадры (если надо) */
+    .dept-media.pos-top img{ object-position: 50% 25%; }
+    .dept-media.pos-low img{ object-position: 50% 70%; }
 
     /* ===== Dark delivery ===== */
     .dark{
@@ -748,21 +759,14 @@
 
     @media (max-width: 860px){
       .brand img{width:78px; height:78px}
+      /* на мобиле шапка чистая: только Telegram */
       #waTop, #qrTop { display:none !important; }
+
+      /* чтобы stickybar не перекрывал форму/кнопки */
       #order{ padding-bottom: calc(56px + 110px + env(safe-area-inset-bottom)); }
+
       .send-row{display:grid; grid-template-columns:1fr; gap:10px}
       .mini-grid{grid-template-columns:repeat(2, minmax(0, 1fr))}
-
-      /* На мобиле: фото сверху, но тоже единый формат */
-      .dept-inner{grid-template-columns:1fr; grid-template-rows: 190px auto;}
-      .dept-media{
-        width:100%;
-        height:190px;     /* единая высота на мобиле */
-        border-left:0;
-        border-bottom:1px solid var(--border);
-      }
-      .dept-text{min-height:auto}
-      .dept-desc{max-width: unset;}
     }
 
     @media (prefers-reduced-motion: reduce){
@@ -1020,106 +1024,103 @@
       </div>
     </section>
 
-    <!-- DEPARTMENTS (Unified Premium Frame) -->
+    <!-- DEPARTMENTS -->
     <section id="departments" class="section divider">
       <div class="container">
         <div class="kicker">Отделы</div>
         <h2 style="margin-top:10px">Сейчас — красная икра. Остальное — скоро.</h2>
-        <p class="sub">Единая витрина: одинаковый формат, одинаковый стиль.</p>
+        <p class="sub">Единая витрина: один формат фото, одна типографика, один премиум-стиль.</p>
 
         <div class="dept-grid">
-          <a class="dept" href="#price" aria-label="Красная икра">
-            <div class="dept-inner">
-              <div class="dept-text">
-                <div>
-                  <div class="dept-top">
-                    <div class="dept-name">Красная икра</div>
-                    <span class="dept-badge live">готово</span>
-                  </div>
-                  <div class="dept-desc">Прайс + быстрый заказ. Подтверждаем наличие и время.</div>
-                </div>
-                <div class="dept-cta">
-                  <div class="hint"><span class="dot ok"></span>Открыть</div>
-                  <div class="dept-arrow" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h12M13 6l6 6-6 6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  </div>
-                </div>
+          <!-- LIVE -->
+          <a class="dept-card" href="#price" aria-label="Красная икра">
+            <div class="dept-media pos-top">
+              <span class="dept-badge live"><span class="dot"></span>готово</span>
+              <img src="hero.webp" alt="Красная икра" loading="lazy" decoding="async">
+            </div>
+            <div class="dept-body">
+              <div>
+                <h3 class="dept-title">Красная икра</h3>
+                <p class="dept-desc">Прайс + быстрый заказ. Подтверждаем наличие и время.</p>
               </div>
-              <div class="dept-media" aria-hidden="true">
-                <img src="hero.webp" alt="" loading="lazy" decoding="async">
+              <div class="dept-footer">
+                <div class="dept-status"><span class="dot ok"></span>Открыть</div>
+                <div class="dept-arrow" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M5 12h12M13 6l6 6-6 6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
               </div>
             </div>
           </a>
 
-          <div class="dept dept--soon" aria-label="Чёрная икра (скоро)">
-            <div class="dept-inner">
-              <div class="dept-text">
-                <div>
-                  <div class="dept-top">
-                    <div class="dept-name">Чёрная икра</div>
-                    <span class="dept-badge soon">скоро</span>
-                  </div>
-                  <div class="dept-desc">Скоро добавим позиции, фасовку и цены.</div>
-                </div>
-                <div class="dept-cta">
-                  <div class="hint"><span class="dot warn"></span>В разработке</div>
-                  <div class="dept-arrow" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h12M13 6l6 6-6 6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  </div>
-                </div>
+          <!-- SOON -->
+          <div class="dept-card soon" aria-label="Чёрная икра (скоро)">
+            <div class="dept-media pos-top">
+              <span class="dept-badge"><span class="dot"></span>скоро</span>
+              <img src="black.webp" alt="Чёрная икра" loading="lazy" decoding="async">
+            </div>
+            <div class="dept-body">
+              <div>
+                <h3 class="dept-title">Чёрная икра</h3>
+                <p class="dept-desc">Скоро добавим позиции, фасовку и цены.</p>
               </div>
-              <div class="dept-media" aria-hidden="true">
-                <img src="black.webp" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'">
+              <div class="dept-footer">
+                <div class="dept-status"><span class="dot warn"></span>В разработке</div>
+                <div class="dept-arrow" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M5 12h12M13 6l6 6-6 6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="dept dept--soon" aria-label="Камчатский краб (скоро)">
-            <div class="dept-inner">
-              <div class="dept-text">
-                <div>
-                  <div class="dept-top">
-                    <div class="dept-name">Камчатский краб</div>
-                    <span class="dept-badge soon">скоро</span>
-                  </div>
-                  <div class="dept-desc">Наборы и позиции — в премиум-формате.</div>
-                </div>
-                <div class="dept-cta">
-                  <div class="hint"><span class="dot warn"></span>В разработке</div>
-                  <div class="dept-arrow" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h12M13 6l6 6-6 6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  </div>
-                </div>
+          <!-- SOON -->
+          <div class="dept-card soon" aria-label="Камчатский краб (скоро)">
+            <div class="dept-media pos-top">
+              <span class="dept-badge"><span class="dot"></span>скоро</span>
+              <img src="crab.webp" alt="Камчатский краб" loading="lazy" decoding="async">
+            </div>
+            <div class="dept-body">
+              <div>
+                <h3 class="dept-title">Камчатский краб</h3>
+                <p class="dept-desc">Наборы и позиции — в премиум-формате.</p>
               </div>
-              <div class="dept-media" aria-hidden="true">
-                <img src="crab.webp" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'">
+              <div class="dept-footer">
+                <div class="dept-status"><span class="dot warn"></span>В разработке</div>
+                <div class="dept-arrow" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M5 12h12M13 6l6 6-6 6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="dept dept--soon" aria-label="Морепродукты (скоро)">
-            <div class="dept-inner">
-              <div class="dept-text">
-                <div>
-                  <div class="dept-top">
-                    <div class="dept-name">Морепродукты</div>
-                    <span class="dept-badge soon">скоро</span>
-                  </div>
-                  <div class="dept-desc">Креветка, гребешок, рыба и деликатесы.</div>
-                </div>
-                <div class="dept-cta">
-                  <div class="hint"><span class="dot warn"></span>В разработке</div>
-                  <div class="dept-arrow" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h12M13 6l6 6-6 6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  </div>
-                </div>
+          <!-- SOON -->
+          <div class="dept-card soon" aria-label="Морепродукты (скоро)">
+            <div class="dept-media pos-low">
+              <span class="dept-badge"><span class="dot"></span>скоро</span>
+              <img src="seafood.webp" alt="Морепродукты" loading="lazy" decoding="async">
+            </div>
+            <div class="dept-body">
+              <div>
+                <h3 class="dept-title">Морепродукты</h3>
+                <p class="dept-desc">Креветка, гребешок, рыба и деликатесы.</p>
               </div>
-              <div class="dept-media" aria-hidden="true">
-                <img src="seafood.webp" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'">
+              <div class="dept-footer">
+                <div class="dept-status"><span class="dot warn"></span>В разработке</div>
+                <div class="dept-arrow" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M5 12h12M13 6l6 6-6 6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
               </div>
             </div>
           </div>
         </div>
+
       </div>
     </section>
 
