@@ -83,6 +83,21 @@
       border-radius: 14px;
     }
 
+    /* ===== Micro reveal (premium scroll) ===== */
+    .reveal{
+      opacity:0;
+      transform: translateY(14px);
+      transition: opacity .6s var(--ease), transform .6s var(--ease);
+      will-change: opacity, transform;
+    }
+    .reveal.in{
+      opacity:1;
+      transform: translateY(0);
+    }
+    .reveal.delay-1{ transition-delay: .06s; }
+    .reveal.delay-2{ transition-delay: .12s; }
+    .reveal.delay-3{ transition-delay: .18s; }
+
     /* ===== Buttons ===== */
     .btn{
       display:inline-flex; align-items:center; justify-content:center; gap:10px;
@@ -266,6 +281,87 @@
       overflow:hidden;
     }
 
+    /* ===== Gallery (3 photos) ===== */
+    .gallery{
+      margin-top:18px;
+      display:grid;
+      gap:14px;
+      grid-template-columns: 1fr;
+    }
+    .gallery-grid{
+      margin-top:14px;
+      display:grid;
+      gap:14px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .gcard{
+      border:1px solid var(--border);
+      background:#fff;
+      border-radius:24px;
+      overflow:hidden;
+      box-shadow: var(--shadow);
+      transition: transform .22s var(--ease), box-shadow .22s var(--ease), border-color .22s var(--ease);
+      cursor: zoom-in;
+      position:relative;
+      isolation:isolate;
+    }
+    .gcard:hover{
+      transform: translateY(-2px);
+      box-shadow: var(--shadow2);
+      border-color: rgba(225,6,19,.25);
+    }
+    .gmedia{
+      position:relative;
+      aspect-ratio: 16 / 11;
+      background:#eef1f6;
+      overflow:hidden;
+    }
+    .gmedia::after{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(225,6,19,.14), transparent 55%),
+        linear-gradient(180deg, rgba(255,255,255,.14), rgba(255,255,255,0) 48%),
+        linear-gradient(180deg, rgba(11,15,23,.00), rgba(11,15,23,.20));
+      pointer-events:none;
+      opacity:.95;
+    }
+    .gmedia img{
+      width:100%; height:100%;
+      object-fit:cover;
+      transform: scale(1.02);
+      transition: transform .45s var(--ease), filter .45s var(--ease);
+      filter: saturate(.98) contrast(1.06) brightness(1.01);
+      display:block;
+    }
+    .gcard:hover .gmedia img{
+      transform: scale(1.07);
+      filter: saturate(1.05) contrast(1.08) brightness(1.03);
+    }
+    .gcap{
+      padding:12px 14px 14px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+    }
+    .gcap .t{
+      font-size:12px;
+      font-weight:950;
+      letter-spacing:0.12em;
+      text-transform:uppercase;
+      color:var(--muted);
+      line-height:1.2;
+    }
+    .gcap .dot{
+      width:10px;height:10px;border-radius:99px;background:var(--red);
+      box-shadow:0 10px 30px rgba(225,6,19,.18);
+    }
+
+    @media (max-width: 860px){
+      .gallery-grid{ grid-template-columns: 1fr; }
+    }
+
     /* ===== Sections ===== */
     .section{padding:56px 0}
     .kicker{
@@ -445,8 +541,50 @@
     .trust-item .v{margin-top:8px; font-size:15px; font-weight:900; letter-spacing:-0.02em}
     .trust-item .d{margin-top:6px; color:var(--muted); font-size:13px}
 
+    /* ===== Reviews (soon) ===== */
+    .reviews-grid{
+      margin-top:18px;
+      display:grid;
+      gap:14px;
+      grid-template-columns: 1fr;
+    }
+    .review-card{
+      border:1px solid var(--border);
+      background:#fff;
+      border-radius:28px;
+      padding:18px;
+      box-shadow: var(--shadow);
+    }
+    .review-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .review-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      font-weight:950;
+      font-size:12px;
+      border:1px solid var(--border);
+      background:var(--soft);
+      color:var(--muted);
+      letter-spacing:-0.01em;
+    }
+    .review-actions{
+      margin-top:14px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
     /* =========================
        DEPARTMENTS — PREMIUM VITRINE (text under photo)
+       (карточки НЕ трогаем логикой — как сейчас)
        ========================= */
     .dept-grid{
       margin-top:18px;
@@ -636,7 +774,7 @@
     }
     .dept-card.soon .dept-arrow{ opacity:.55; }
 
-    /* точечные кадры (если надо) */
+    /* точечные кадры */
     .dept-media.pos-top img{ object-position: 50% 25%; }
     .dept-media.pos-low img{ object-position: 50% 70%; }
 
@@ -755,14 +893,13 @@
       .trust{grid-template-columns:repeat(3,1fr)}
       .stickybar, .spacer{display:none}
       .order-wrap{grid-template-columns: 1.15fr .85fr}
+      .reviews-grid{grid-template-columns: 1.2fr .8fr}
     }
 
     @media (max-width: 860px){
       .brand img{width:78px; height:78px}
-      /* на мобиле шапка чистая: только Telegram */
       #waTop, #qrTop { display:none !important; }
 
-      /* чтобы stickybar не перекрывал форму/кнопки */
       #order{ padding-bottom: calc(56px + 110px + env(safe-area-inset-bottom)); }
 
       .send-row{display:grid; grid-template-columns:1fr; gap:10px}
@@ -771,6 +908,7 @@
 
     @media (prefers-reduced-motion: reduce){
       *{animation:none !important; transition:none !important; scroll-behavior:auto !important;}
+      .reveal{opacity:1 !important; transform:none !important;}
     }
   </style>
 </head>
@@ -809,7 +947,7 @@
 
       <div class="container">
         <div class="hero-grid">
-          <div>
+          <div class="reveal">
             <div class="pillbar">
               <span class="pill">Москва</span>
               <span class="pill">МО</span>
@@ -837,13 +975,14 @@
             </div>
           </div>
 
-          <div class="visual">
+          <div class="visual reveal delay-1">
             <div style="display:flex; justify-content:space-between; align-items:center; font-size:var(--fs-mini); font-weight:900; letter-spacing:-0.005em; color:var(--muted)">
               <div>Крупное зерно • Чистый вкус</div>
               <div class="dot"></div>
             </div>
 
-            <img class="hero-photo" id="heroPhoto" src="hero.webp" alt="Красная икра" loading="eager" decoding="async"
+            <img class="hero-photo lb" id="heroPhoto" src="hero.webp" alt="Красная икра" loading="eager" decoding="async"
+              data-lightbox="hero.webp"
               onerror="this.style.display='none'; this.insertAdjacentHTML('afterend','<div style=&quot;margin-top:12px;height:460px;border-radius:28px;border:1px solid var(--border);background:var(--soft);display:grid;place-items:center;color:var(--muted);font-weight:900&quot;>hero.webp не найден — положи файл рядом с index.html</div>');"/>
 
             <div class="mini-grid" aria-label="Информация">
@@ -853,11 +992,44 @@
             </div>
           </div>
         </div>
+
+        <!-- GALLERY (3 photos) -->
+        <div class="gallery reveal delay-2">
+          <div style="margin-top:8px">
+            <div class="kicker">Витрина</div>
+            <h2 style="margin-top:10px">Как выглядит продукт</h2>
+            <p class="sub">3 фото — один стиль. Нажмите, чтобы открыть крупно.</p>
+          </div>
+
+          <div class="gallery-grid">
+            <div class="gcard lb" data-lightbox="g1.webp" aria-label="Фото 1">
+              <div class="gmedia">
+                <img src="g1.webp" alt="Фото 1" loading="lazy" decoding="async">
+              </div>
+              <div class="gcap"><div class="t">Фото 1</div><div class="dot"></div></div>
+            </div>
+
+            <div class="gcard lb" data-lightbox="g2.webp" aria-label="Фото 2">
+              <div class="gmedia">
+                <img src="g2.webp" alt="Фото 2" loading="lazy" decoding="async">
+              </div>
+              <div class="gcap"><div class="t">Фото 2</div><div class="dot"></div></div>
+            </div>
+
+            <div class="gcard lb" data-lightbox="g3.webp" aria-label="Фото 3">
+              <div class="gmedia">
+                <img src="g3.webp" alt="Фото 3" loading="lazy" decoding="async">
+              </div>
+              <div class="gcap"><div class="t">Фото 3</div><div class="dot"></div></div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
     <!-- PRICE -->
-    <section id="price" class="section soft divider">
+    <section id="price" class="section soft divider reveal">
       <div class="container">
         <div class="row-between">
           <div>
@@ -892,14 +1064,14 @@
     </section>
 
     <!-- ORDER -->
-    <section id="order" class="section divider">
+    <section id="order" class="section divider reveal">
       <div class="container">
         <div class="kicker">Быстрый заказ</div>
         <h2 style="margin-top:10px">Соберите заявку — и отправьте в один тап</h2>
         <p class="sub">Только нужное: вид, фасовка, количество и комментарий. Мы подтверждаем наличие и время.</p>
 
         <div class="order-wrap">
-          <div class="panel">
+          <div class="panel reveal delay-1">
             <h3>Заявка</h3>
             <div class="hint">В комментарии можно указать район, когда нужно и “на подарок/на стол”.</div>
 
@@ -965,7 +1137,7 @@
             <div class="hint" style="margin-top:10px">Если хотите — можем подобрать вариант по бюджету и задаче.</div>
           </div>
 
-          <div class="panel">
+          <div class="panel reveal delay-2">
             <h3>Коротко по делу</h3>
             <div class="hint">Прозрачно, без лишнего.</div>
 
@@ -998,24 +1170,24 @@
     </section>
 
     <!-- TRUST -->
-    <section id="trust" class="section soft divider">
+    <section id="trust" class="section soft divider reveal">
       <div class="container">
         <div class="kicker">Почему доверяют</div>
         <h2 style="margin-top:10px">Минимум слов — максимум уверенности</h2>
         <p class="sub">Без лишнего: происхождение, хранение, документы.</p>
 
         <div class="trust">
-          <div class="trust-item">
+          <div class="trust-item reveal delay-1">
             <div class="t">Камчатка</div>
             <div class="v">Родом с Камчатки</div>
             <div class="d">Понимаем, какая должна быть икра по качеству и зерну.</div>
           </div>
-          <div class="trust-item">
+          <div class="trust-item reveal delay-2">
             <div class="t">Хранение</div>
             <div class="v">Контроль свежести</div>
             <div class="d">Соблюдаем условия хранения и логистику.</div>
           </div>
-          <div class="trust-item">
+          <div class="trust-item reveal delay-3">
             <div class="t">Документы</div>
             <div class="v">По запросу</div>
             <div class="d">Покажем перед покупкой — спокойно и честно.</div>
@@ -1024,8 +1196,44 @@
       </div>
     </section>
 
+    <!-- REVIEWS (SOON + LEAVE REVIEW) -->
+    <section id="reviews" class="section divider reveal">
+      <div class="container">
+        <div class="kicker">Отзывы</div>
+        <h2 style="margin-top:10px">Скоро появятся первые отзывы</h2>
+        <p class="sub">Мы не рисуем “фейки”. После первых заказов здесь будут реальные отзывы клиентов.</p>
+
+        <div class="reviews-grid">
+          <div class="review-card reveal delay-1">
+            <div class="review-head">
+              <div style="font-weight:950; letter-spacing:-0.02em">Первые отзывы — после первых заказов</div>
+              <div class="review-badge"><span class="dot warn"></span>в процессе</div>
+            </div>
+            <div class="hint" style="margin-top:10px">
+              Хотите — оставьте отзыв после покупки. Это поможет другим людям выбрать уверенно.
+            </div>
+          </div>
+
+          <div class="review-card reveal delay-2">
+            <div class="review-head">
+              <div style="font-weight:950; letter-spacing:-0.02em">Оставить отзыв</div>
+              <div class="review-badge"><span class="dot ok"></span>быстро</div>
+            </div>
+            <div class="hint" style="margin-top:10px">
+              Напишите 1–2 предложения: вид икры, фасовка, доставка/самовывоз и впечатление.
+            </div>
+            <div class="review-actions">
+              <a class="btn btn-primary" id="leaveReviewWA" href="#" target="_blank" rel="noreferrer">WhatsApp</a>
+              <a class="btn btn-secondary" id="leaveReviewTG" href="#" target="_blank" rel="noreferrer">Telegram</a>
+              <button class="btn btn-ghost" id="copyReviewText" type="button">Скопировать текст</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- DEPARTMENTS -->
-    <section id="departments" class="section divider">
+    <section id="departments" class="section divider reveal">
       <div class="container">
         <div class="kicker">Отделы</div>
         <h2 style="margin-top:10px">Сейчас — красная икра. Остальное — скоро.</h2>
@@ -1033,7 +1241,7 @@
 
         <div class="dept-grid">
           <!-- LIVE -->
-          <a class="dept-card" href="#price" aria-label="Красная икра">
+          <a class="dept-card reveal delay-1" href="#price" aria-label="Красная икра">
             <div class="dept-media pos-top">
               <span class="dept-badge live"><span class="dot"></span>готово</span>
               <img src="hero.webp" alt="Красная икра" loading="lazy" decoding="async">
@@ -1055,7 +1263,7 @@
           </a>
 
           <!-- SOON -->
-          <div class="dept-card soon" aria-label="Чёрная икра (скоро)">
+          <div class="dept-card soon reveal delay-2" aria-label="Чёрная икра (скоро)">
             <div class="dept-media pos-top">
               <span class="dept-badge"><span class="dot"></span>скоро</span>
               <img src="black.webp" alt="Чёрная икра" loading="lazy" decoding="async">
@@ -1077,7 +1285,7 @@
           </div>
 
           <!-- SOON -->
-          <div class="dept-card soon" aria-label="Камчатский краб (скоро)">
+          <div class="dept-card soon reveal delay-3" aria-label="Камчатский краб (скоро)">
             <div class="dept-media pos-top">
               <span class="dept-badge"><span class="dot"></span>скоро</span>
               <img src="crab.webp" alt="Камчатский краб" loading="lazy" decoding="async">
@@ -1099,7 +1307,7 @@
           </div>
 
           <!-- SOON -->
-          <div class="dept-card soon" aria-label="Морепродукты (скоро)">
+          <div class="dept-card soon reveal" aria-label="Морепродукты (скоро)">
             <div class="dept-media pos-low">
               <span class="dept-badge"><span class="dot"></span>скоро</span>
               <img src="seafood.webp" alt="Морепродукты" loading="lazy" decoding="async">
@@ -1125,7 +1333,7 @@
     </section>
 
     <!-- DELIVERY -->
-    <section id="delivery" class="section divider dark">
+    <section id="delivery" class="section divider dark reveal">
       <div class="container">
         <div class="row-between" style="align-items:center">
           <div style="max-width:62ch; position:relative">
@@ -1156,7 +1364,7 @@
     </section>
   </main>
 
-  <footer class="divider">
+  <footer class="divider reveal">
     <div class="container">
       <div class="footer-row">
         <div class="brand">
@@ -1246,6 +1454,7 @@
       }
     }
 
+    // ===== Price data =====
     const PRICE = {
       line1: {
         title: "Линия 1 — Фирменная фасовка",
@@ -1267,6 +1476,7 @@
       }
     };
 
+    // ===== Availability =====
     const AVAIL = [
       { name:"Горбуша", status:"ok" },
       { name:"Кета", status:"ok" },
@@ -1287,12 +1497,14 @@
       });
     }
 
+    // ===== WhatsApp quick links =====
     const waHello = "Здравствуйте! Хочу заказать икру. Подскажите наличие и ближайшее время.";
     ["waTop","waBottom","waFooter","waSticky"].forEach(id => {
       const el = document.getElementById(id);
       if (el) el.href = waLink(waHello);
     });
 
+    // ===== Price render =====
     const tabs = $$(".tab");
     const grid = $("#priceGrid");
     const lineTitle = $("#lineTitle");
@@ -1323,13 +1535,16 @@
             `;
 
         return `
-          <div class="card">
+          <div class="card reveal">
             <div class="title"><span class="dot"></span>${item.name}</div>
             ${badge}
             <div class="rows">${rows}</div>
           </div>
         `;
       }).join("");
+
+      // Подключаем reveal для вновь созданных карточек
+      hookRevealForNewNodes();
     }
 
     tabs.forEach(btn => {
@@ -1368,6 +1583,7 @@
     $("#copyPrice").addEventListener("click", () => copyToClipboard(buildPriceText(), "Прайс скопирован ✅"));
     $("#copyPriceTop").addEventListener("click", () => copyToClipboard(buildPriceText(), "Прайс скопирован ✅"));
 
+    // ===== Order form =====
     const fLine = $("#fLine");
     const fFish = $("#fFish");
     const fSize = $("#fSize");
@@ -1501,11 +1717,32 @@
 
     sendMain.addEventListener("click", () => haptic(12));
 
-    // Lightbox
+    // ===== Reviews: leave review =====
+    const reviewText =
+`Здравствуйте! Хочу оставить отзыв:
+
+• Что брали (вид/фасовка):
+• Количество:
+• Доставка/самовывоз (район):
+• Впечатление (вкус/зерно/соль):
+
+Спасибо!`;
+
+    const leaveReviewWA = $("#leaveReviewWA");
+    const leaveReviewTG = $("#leaveReviewTG");
+    const copyReviewText = $("#copyReviewText");
+
+    leaveReviewWA.href = waLink(reviewText);
+    leaveReviewTG.href = tgShareLink(reviewText);
+
+    copyReviewText.addEventListener("click", async () => {
+      await copyToClipboard(reviewText, "Текст отзыва скопирован ✅");
+    });
+
+    // ===== Lightbox (hero + gallery) =====
     const modal = $("#modal");
     const modalImg = $("#modalImg");
     const modalClose = $("#modalClose");
-    const heroPhoto = $("#heroPhoto");
 
     function openModal(src){
       if (!src) return;
@@ -1520,25 +1757,72 @@
       modalImg.src = "";
       document.body.style.overflow = "";
     }
-    if (heroPhoto){
-      heroPhoto.addEventListener("click", () => openModal(heroPhoto.getAttribute("src")));
+
+    function hookLightbox(){
+      $$(".lb").forEach(el => {
+        el.addEventListener("click", () => {
+          const src = el.getAttribute("data-lightbox");
+          openModal(src);
+        });
+      });
     }
+
     modalClose.addEventListener("click", closeModal);
     modal.addEventListener("click", (e) => { if (e.target === modal) closeModal(); });
     window.addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal(); });
 
-    // Init
-    renderAvail();
-    renderPrice("line1");
-    syncOrderSizes();
-    updateOrder();
+    // ===== Premium scroll reveal =====
+    let revealObserver = null;
 
-    const qrBtn = $("#qrTop");
-    if (qrBtn){
-      qrBtn.addEventListener("click", async () => {
-        await copyToClipboard(TG_INVITE, "Ссылка на Telegram скопирована ✅");
+    function createRevealObserver(){
+      if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches){
+        $$(".reveal").forEach(el => el.classList.add("in"));
+        return null;
+      }
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting){
+            entry.target.classList.add("in");
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
+
+      $$(".reveal").forEach(el => io.observe(el));
+      return io;
+    }
+
+    function hookRevealForNewNodes(){
+      if (!revealObserver) return;
+      $$(".reveal:not(.in)").forEach(el => {
+        try{ revealObserver.observe(el); }catch(e){}
       });
     }
+
+    // ===== Init =====
+    function renderPriceInit(){
+      renderPrice("line1");
+    }
+
+    function init(){
+      renderAvail();
+      renderPriceInit();
+      syncOrderSizes();
+      updateOrder();
+      hookLightbox();
+
+      revealObserver = createRevealObserver();
+      hookRevealForNewNodes();
+
+      const qrBtn = $("#qrTop");
+      if (qrBtn){
+        qrBtn.addEventListener("click", async () => {
+          await copyToClipboard(TG_INVITE, "Ссылка на Telegram скопирована ✅");
+        });
+      }
+    }
+
+    init();
   </script>
 
   <script type="application/ld+json">
