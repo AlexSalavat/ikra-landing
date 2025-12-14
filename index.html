@@ -90,10 +90,7 @@
       transition: opacity .6s var(--ease), transform .6s var(--ease);
       will-change: opacity, transform;
     }
-    .reveal.in{
-      opacity:1;
-      transform: translateY(0);
-    }
+    .reveal.in{ opacity:1; transform: translateY(0); }
     .reveal.delay-1{ transition-delay: .06s; }
     .reveal.delay-2{ transition-delay: .12s; }
     .reveal.delay-3{ transition-delay: .18s; }
@@ -282,12 +279,7 @@
     }
 
     /* ===== Gallery (3 photos) ===== */
-    .gallery{
-      margin-top:18px;
-      display:grid;
-      gap:14px;
-      grid-template-columns: 1fr;
-    }
+    .gallery{ margin-top:18px; display:grid; gap:14px; grid-template-columns: 1fr; }
     .gallery-grid{
       margin-top:14px;
       display:grid;
@@ -357,7 +349,6 @@
       width:10px;height:10px;border-radius:99px;background:var(--red);
       box-shadow:0 10px 30px rgba(225,6,19,.18);
     }
-
     @media (max-width: 860px){
       .gallery-grid{ grid-template-columns: 1fr; }
     }
@@ -438,7 +429,7 @@
     .note .h{font-weight:950; letter-spacing:-0.01em}
     .note .d{margin-top:4px; color:var(--muted)}
 
-    /* ===== Order minimal ===== */
+    /* ===== Order + Cart ===== */
     .order-wrap{display:grid; gap:14px; grid-template-columns:1fr; margin-top:18px}
     .panel{
       border:1px solid var(--border);
@@ -487,6 +478,100 @@
     .total .t{font-size:12px; font-weight:950; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted)}
     .total .v{font-size:18px; font-weight:950; letter-spacing:-0.02em; font-variant-numeric: tabular-nums slashed-zero}
 
+    .actions-row{
+      margin-top:12px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .actions-row .btn{flex:1 1 220px}
+
+    .cart{
+      margin-top:14px;
+      display:grid;
+      gap:10px;
+    }
+    .cart-empty{
+      border:1px dashed rgba(11,15,23,.18);
+      background: linear-gradient(180deg, #fff, #fbfcff);
+      border-radius:18px;
+      padding:14px;
+      color:var(--muted);
+      font-weight:850;
+    }
+    .cart-item{
+      border:1px solid var(--border);
+      background:#fff;
+      border-radius:18px;
+      padding:12px 12px;
+      display:flex;
+      gap:12px;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .cart-left{min-width:0}
+    .cart-name{
+      font-weight:950;
+      letter-spacing:-0.02em;
+      line-height:1.2;
+      font-size:14px;
+      display:-webkit-box;
+      -webkit-line-clamp:2;
+      -webkit-box-orient:vertical;
+      overflow:hidden;
+    }
+    .cart-meta{
+      margin-top:6px;
+      color:var(--muted);
+      font-size:12px;
+      font-weight:850;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .cart-right{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex:0 0 auto;
+    }
+    .qty{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      border:1px solid var(--border);
+      background:var(--soft);
+      border-radius:14px;
+      padding:6px;
+    }
+    .qbtn{
+      width:34px;height:34px;
+      border-radius:12px;
+      border:1px solid var(--border);
+      background:#fff;
+      font-weight:950;
+      cursor:pointer;
+      transition: transform .16s var(--ease), border-color .2s var(--ease);
+    }
+    .qbtn:hover{transform:translateY(-1px); border-color: rgba(225,6,19,.25);}
+    .qnum{
+      min-width:26px;
+      text-align:center;
+      font-weight:950;
+      font-variant-numeric: tabular-nums slashed-zero;
+    }
+    .delbtn{
+      width:40px;height:40px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background:#fff;
+      cursor:pointer;
+      font-weight:950;
+      transition: transform .16s var(--ease), border-color .2s var(--ease), color .2s var(--ease);
+      color:var(--muted);
+    }
+    .delbtn:hover{transform:translateY(-1px); border-color: rgba(225,6,19,.25); color:var(--red);}
+
     .channel{
       margin-top:12px;
       display:flex;
@@ -515,21 +600,8 @@
     .seg button:hover{color:var(--ink); transform:translateY(-1px)}
     .seg button.active{background:var(--ink); color:#fff; box-shadow: 0 10px 30px rgba(11,15,23,.18);}
 
-    .send-row{
-      margin-top:12px;
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-    .send-row .btn{flex:1 1 220px}
-
     /* ===== Trust ===== */
-    .trust{
-      margin-top:18px;
-      display:grid;
-      gap:12px;
-      grid-template-columns: 1fr;
-    }
+    .trust{ margin-top:18px; display:grid; gap:12px; grid-template-columns: 1fr; }
     .trust-item{
       border:1px solid var(--border);
       background:#fff;
@@ -542,12 +614,7 @@
     .trust-item .d{margin-top:6px; color:var(--muted); font-size:13px}
 
     /* ===== Reviews (soon) ===== */
-    .reviews-grid{
-      margin-top:18px;
-      display:grid;
-      gap:14px;
-      grid-template-columns: 1fr;
-    }
+    .reviews-grid{ margin-top:18px; display:grid; gap:14px; grid-template-columns: 1fr; }
     .review-card{
       border:1px solid var(--border);
       background:#fff;
@@ -584,22 +651,11 @@
 
     /* =========================
        DEPARTMENTS — PREMIUM VITRINE (text under photo)
-       (карточки НЕ трогаем логикой — как сейчас)
        ========================= */
-    .dept-grid{
-      margin-top:18px;
-      display:grid;
-      gap:16px;
-    }
-    @media (min-width:1100px){
-      .dept-grid{ grid-template-columns: repeat(4, minmax(0,1fr)); }
-    }
-    @media (min-width:720px) and (max-width:1099px){
-      .dept-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
-    }
-    @media (max-width:719px){
-      .dept-grid{ grid-template-columns: 1fr; }
-    }
+    .dept-grid{ margin-top:18px; display:grid; gap:16px; }
+    @media (min-width:1100px){ .dept-grid{ grid-template-columns: repeat(4, minmax(0,1fr)); } }
+    @media (min-width:720px) and (max-width:1099px){ .dept-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); } }
+    @media (max-width:719px){ .dept-grid{ grid-template-columns: 1fr; } }
 
     .dept-card{
       border:1px solid var(--border);
@@ -644,10 +700,7 @@
       transition: opacity .25s var(--ease), transform .55s var(--ease);
       pointer-events:none;
     }
-    .dept-card:hover .dept-media::before{
-      opacity:1;
-      transform: translateX(30%);
-    }
+    .dept-card:hover .dept-media::before{ opacity:1; transform: translateX(30%); }
 
     .dept-media img{
       width:100%;
@@ -683,9 +736,7 @@
       z-index:2;
     }
     .dept-badge.live{ background: rgba(22,163,74,.92); }
-    .dept-badge span.dot{
-      width:9px; height:9px; border-radius:99px; background:#fff; opacity:.95;
-    }
+    .dept-badge span.dot{ width:9px; height:9px; border-radius:99px; background:#fff; opacity:.95; }
 
     .dept-body{
       padding:16px 16px 14px;
@@ -749,32 +800,22 @@
       transition: transform .22s var(--ease), border-color .22s var(--ease), box-shadow .22s var(--ease);
       flex:0 0 auto;
     }
-
     .dept-card:hover .dept-arrow{
       transform: translateY(-1px);
       border-color: rgba(225,6,19,.25);
       box-shadow: 0 20px 70px rgba(225,6,19,.12);
     }
-
     .dept-arrow svg{
       width:18px; height:18px;
       stroke: var(--ink);
       transition: transform .22s var(--ease), stroke .22s var(--ease);
     }
-    .dept-card:hover .dept-arrow svg{
-      transform: translateX(2px);
-      stroke: var(--red);
-    }
+    .dept-card:hover .dept-arrow svg{ transform: translateX(2px); stroke: var(--red); }
 
     .dept-card.soon{ cursor: default; }
-    .dept-card.soon:hover{
-      transform:none;
-      box-shadow: var(--shadow);
-      border-color: var(--border);
-    }
+    .dept-card.soon:hover{ transform:none; box-shadow: var(--shadow); border-color: var(--border); }
     .dept-card.soon .dept-arrow{ opacity:.55; }
 
-    /* точечные кадры */
     .dept-media.pos-top img{ object-position: 50% 25%; }
     .dept-media.pos-low img{ object-position: 50% 70%; }
 
@@ -892,17 +933,15 @@
       .grid{grid-template-columns:repeat(4,1fr); gap:18px}
       .trust{grid-template-columns:repeat(3,1fr)}
       .stickybar, .spacer{display:none}
-      .order-wrap{grid-template-columns: 1.15fr .85fr}
+      .order-wrap{grid-template-columns: 1.05fr .95fr}
       .reviews-grid{grid-template-columns: 1.2fr .8fr}
     }
 
     @media (max-width: 860px){
       .brand img{width:78px; height:78px}
-      #waTop, #qrTop { display:none !important; }
-
+      /* чистая шапка на мобиле */
+      #waTop { display:none !important; }
       #order{ padding-bottom: calc(56px + 110px + env(safe-area-inset-bottom)); }
-
-      .send-row{display:grid; grid-template-columns:1fr; gap:10px}
       .mini-grid{grid-template-columns:repeat(2, minmax(0, 1fr))}
     }
 
@@ -931,7 +970,6 @@
 
         <div class="header-actions">
           <a class="header-phone" href="tel:+79104788080">+7 910 478-80-80</a>
-          <button class="btn btn-ghost" id="qrTop" type="button">QR</button>
           <a class="btn btn-secondary" id="waTop" href="#" target="_blank" rel="noreferrer">WhatsApp</a>
           <a class="btn btn-primary" href="https://t.me/+epLhD48KRgg3YzZi" target="_blank" rel="noreferrer">Telegram</a>
         </div>
@@ -1003,23 +1041,15 @@
 
           <div class="gallery-grid">
             <div class="gcard lb" data-lightbox="g1.webp" aria-label="Фото 1">
-              <div class="gmedia">
-                <img src="g1.webp" alt="Фото 1" loading="lazy" decoding="async">
-              </div>
+              <div class="gmedia"><img src="g1.webp" alt="Фото 1" loading="lazy" decoding="async"></div>
               <div class="gcap"><div class="t">Фото 1</div><div class="dot"></div></div>
             </div>
-
             <div class="gcard lb" data-lightbox="g2.webp" aria-label="Фото 2">
-              <div class="gmedia">
-                <img src="g2.webp" alt="Фото 2" loading="lazy" decoding="async">
-              </div>
+              <div class="gmedia"><img src="g2.webp" alt="Фото 2" loading="lazy" decoding="async"></div>
               <div class="gcap"><div class="t">Фото 2</div><div class="dot"></div></div>
             </div>
-
             <div class="gcard lb" data-lightbox="g3.webp" aria-label="Фото 3">
-              <div class="gmedia">
-                <img src="g3.webp" alt="Фото 3" loading="lazy" decoding="async">
-              </div>
+              <div class="gmedia"><img src="g3.webp" alt="Фото 3" loading="lazy" decoding="async"></div>
               <div class="gcap"><div class="t">Фото 3</div><div class="dot"></div></div>
             </div>
           </div>
@@ -1063,17 +1093,18 @@
       </div>
     </section>
 
-    <!-- ORDER -->
+    <!-- ORDER + CART -->
     <section id="order" class="section divider reveal">
       <div class="container">
         <div class="kicker">Быстрый заказ</div>
-        <h2 style="margin-top:10px">Соберите заявку — и отправьте в один тап</h2>
-        <p class="sub">Только нужное: вид, фасовка, количество и комментарий. Мы подтверждаем наличие и время.</p>
+        <h2 style="margin-top:10px">Добавляйте позиции в корзину — и отправляйте одним сообщением</h2>
+        <p class="sub">Выберите вид/фасовку/количество → нажмите “Добавить в корзину”. Можно несколько видов сразу.</p>
 
         <div class="order-wrap">
+          <!-- LEFT: pick item -->
           <div class="panel reveal delay-1">
-            <h3>Заявка</h3>
-            <div class="hint">В комментарии можно указать район, когда нужно и “на подарок/на стол”.</div>
+            <h3>Выбор позиции</h3>
+            <div class="hint">Соберите корзину: горбуша + кета + кижуч — как нужно.</div>
 
             <div class="form">
               <div class="field">
@@ -1103,11 +1134,6 @@
                 <div class="label">Количество банок</div>
                 <input id="fQty" type="number" min="1" step="1" value="" placeholder="1" inputmode="numeric"/>
               </div>
-
-              <div class="field">
-                <div class="label">Район / комментарий</div>
-                <input id="fComment" maxlength="140" placeholder="Например: Троицк, завтра, на подарок"/>
-              </div>
             </div>
 
             <div class="summary">
@@ -1116,9 +1142,36 @@
                 <div class="v" id="fUnit">—</div>
               </div>
               <div class="total">
-                <div class="t">Итого</div>
-                <div class="v" id="fTotal">—</div>
+                <div class="t">Сумма позиции</div>
+                <div class="v" id="fLineTotal">—</div>
               </div>
+            </div>
+
+            <div class="actions-row">
+              <button class="btn btn-primary" id="addToCart" type="button">Добавить в корзину</button>
+              <button class="btn btn-ghost" id="clearCart" type="button">Очистить корзину</button>
+            </div>
+
+            <div class="hint" style="margin-top:10px">Нерка может быть “Уточнить” — добавляйте, мы подтвердим наличие.</div>
+          </div>
+
+          <!-- RIGHT: cart + send -->
+          <div class="panel reveal delay-2">
+            <h3>Корзина</h3>
+            <div class="hint">Позиции можно менять: + / − / удалить. Комментарий добавится ко всему заказу.</div>
+
+            <div id="cartList" class="cart" aria-label="Корзина"></div>
+
+            <div class="summary">
+              <div class="total">
+                <div class="t">Итого корзины</div>
+                <div class="v" id="cartTotal">—</div>
+              </div>
+            </div>
+
+            <div class="field" style="margin-top:12px">
+              <div class="label">Район / комментарий</div>
+              <input id="fComment" maxlength="160" placeholder="Например: Троицк, завтра, на подарок"/>
             </div>
 
             <div class="channel">
@@ -1129,39 +1182,16 @@
               </div>
             </div>
 
-            <div class="send-row">
-              <a class="btn btn-primary" id="sendMain" href="#" target="_blank" rel="noreferrer">Отправить в WhatsApp</a>
-              <button class="btn btn-ghost" id="copyOrder" type="button">Скопировать заявку</button>
-            </div>
-
-            <div class="hint" style="margin-top:10px">Если хотите — можем подобрать вариант по бюджету и задаче.</div>
-          </div>
-
-          <div class="panel reveal delay-2">
-            <h3>Коротко по делу</h3>
-            <div class="hint">Прозрачно, без лишнего.</div>
-
-            <div class="note" style="margin-top:14px">
-              <div class="icon">1</div>
-              <div>
-                <div class="h">Подтверждаем наличие</div>
-                <div class="d">Проверяем выбранный вид/фасовку и отвечаем по времени.</div>
-              </div>
-            </div>
-
-            <div class="note" style="margin-top:14px">
-              <div class="icon">2</div>
-              <div>
-                <div class="h">Самовывоз / доставка</div>
-                <div class="d">По договорённости — под ваш график.</div>
-              </div>
+            <div class="actions-row">
+              <a class="btn btn-primary" id="sendMain" href="#" target="_blank" rel="noreferrer">Отправить корзину</a>
+              <button class="btn btn-ghost" id="copyOrder" type="button">Скопировать заказ</button>
             </div>
 
             <div class="note" style="margin-top:14px">
               <div class="icon">✓</div>
               <div>
-                <div class="h">Документы</div>
-                <div class="d">По запросу. Перед покупкой покажем.</div>
+                <div class="h">Подтверждаем наличие</div>
+                <div class="d">Проверим выбранные позиции и ответим по времени.</div>
               </div>
             </div>
           </div>
@@ -1196,7 +1226,7 @@
       </div>
     </section>
 
-    <!-- REVIEWS (SOON + LEAVE REVIEW) -->
+    <!-- REVIEWS -->
     <section id="reviews" class="section divider reveal">
       <div class="container">
         <div class="kicker">Отзывы</div>
@@ -1240,7 +1270,6 @@
         <p class="sub">Единая витрина: один формат фото, одна типографика, один премиум-стиль.</p>
 
         <div class="dept-grid">
-          <!-- LIVE -->
           <a class="dept-card reveal delay-1" href="#price" aria-label="Красная икра">
             <div class="dept-media pos-top">
               <span class="dept-badge live"><span class="dot"></span>готово</span>
@@ -1262,7 +1291,6 @@
             </div>
           </a>
 
-          <!-- SOON -->
           <div class="dept-card soon reveal delay-2" aria-label="Чёрная икра (скоро)">
             <div class="dept-media pos-top">
               <span class="dept-badge"><span class="dot"></span>скоро</span>
@@ -1284,7 +1312,6 @@
             </div>
           </div>
 
-          <!-- SOON -->
           <div class="dept-card soon reveal delay-3" aria-label="Камчатский краб (скоро)">
             <div class="dept-media pos-top">
               <span class="dept-badge"><span class="dot"></span>скоро</span>
@@ -1306,7 +1333,6 @@
             </div>
           </div>
 
-          <!-- SOON -->
           <div class="dept-card soon reveal" aria-label="Морепродукты (скоро)">
             <div class="dept-media pos-low">
               <span class="dept-badge"><span class="dot"></span>скоро</span>
@@ -1327,8 +1353,8 @@
               </div>
             </div>
           </div>
-        </div>
 
+        </div>
       </div>
     </section>
 
@@ -1354,7 +1380,7 @@
           <div class="panel" style="max-width:520px">
             <div style="font-weight:900; color:rgba(255,255,255,.72); letter-spacing:-0.01em">Что написать</div>
             <div style="margin-top:12px; display:grid; gap:10px">
-              <div style="border:1px solid rgba(255,255,255,.10); background:rgba(0,0,0,.15); padding:12px 14px; border-radius:18px; color:rgba(255,255,255,.88)">1) Вид и фасовка</div>
+              <div style="border:1px solid rgba(255,255,255,.10); background:rgba(0,0,0,.15); padding:12px 14px; border-radius:18px; color:rgba(255,255,255,.88)">1) Какие позиции (вид/фасовка)</div>
               <div style="border:1px solid rgba(255,255,255,.10); background:rgba(0,0,0,.15); padding:12px 14px; border-radius:18px; color:rgba(255,255,255,.88)">2) Количество</div>
               <div style="border:1px solid rgba(255,255,255,.10); background:rgba(0,0,0,.15); padding:12px 14px; border-radius:18px; color:rgba(255,255,255,.88)">3) Район + когда нужно</div>
             </div>
@@ -1376,7 +1402,10 @@
           <a class="btn btn-primary" href="https://t.me/+epLhD48KRgg3YzZi" target="_blank" rel="noreferrer">Telegram</a>
         </div>
       </div>
-      <div class="fine">Самовывоз / доставка — по договорённости. Нерка — по наличию.</div>
+      <div class="fine">
+        Самовывоз / доставка — по договорённости. Нерка — по наличию.
+        <span style="margin-left:10px; opacity:.75" id="buildVersion"></span>
+      </div>
     </div>
   </footer>
 
@@ -1454,6 +1483,10 @@
       }
     }
 
+    // ===== Build version (for cache control) =====
+    const BUILD = new Date().toISOString().slice(0,16).replace("T"," ");
+    $("#buildVersion").textContent = "Версия: " + BUILD;
+
     // ===== Price data =====
     const PRICE = {
       line1: {
@@ -1483,7 +1516,6 @@
       { name:"Кижуч", status:"ok" },
       { name:"Нерка", status:"warn" }
     ];
-
     function renderAvail(){
       const bar = $("#availBar");
       bar.innerHTML = "";
@@ -1543,7 +1575,6 @@
         `;
       }).join("");
 
-      // Подключаем reveal для вновь созданных карточек
       hookRevealForNewNodes();
     }
 
@@ -1554,7 +1585,7 @@
         btn.setAttribute("aria-selected","true");
         renderPrice(btn.dataset.line);
         syncOrderSizes();
-        updateOrder();
+        updatePicker();
       });
     });
 
@@ -1583,14 +1614,21 @@
     $("#copyPrice").addEventListener("click", () => copyToClipboard(buildPriceText(), "Прайс скопирован ✅"));
     $("#copyPriceTop").addEventListener("click", () => copyToClipboard(buildPriceText(), "Прайс скопирован ✅"));
 
-    // ===== Order form =====
+    // ===== Picker + Cart =====
     const fLine = $("#fLine");
     const fFish = $("#fFish");
     const fSize = $("#fSize");
     const fQty = $("#fQty");
     const fComment = $("#fComment");
+
     const fUnit = $("#fUnit");
-    const fTotal = $("#fTotal");
+    const fLineTotal = $("#fLineTotal");
+
+    const cartList = $("#cartList");
+    const cartTotalEl = $("#cartTotal");
+
+    const addToCartBtn = $("#addToCart");
+    const clearCartBtn = $("#clearCart");
 
     const chWA = $("#chWA");
     const chTG = $("#chTG");
@@ -1598,6 +1636,7 @@
     const copyOrderBtn = $("#copyOrder");
 
     let channel = "wa";
+    let cart = [];
 
     function setChannel(next){
       channel = next;
@@ -1605,9 +1644,8 @@
       chTG.classList.toggle("active", channel === "tg");
       chWA.setAttribute("aria-selected", channel === "wa" ? "true" : "false");
       chTG.setAttribute("aria-selected", channel === "tg" ? "true" : "false");
-      updateOrder();
+      updateSendLinks();
     }
-
     chWA.addEventListener("click", () => setChannel("wa"));
     chTG.addEventListener("click", () => setChannel("tg"));
 
@@ -1633,16 +1671,13 @@
       });
     }
 
-    function unitPrice(){
-      const lineKey = fLine.value;
-      const fishKey = fFish.value;
-      const size = fSize.value;
+    function unitPriceFor(lineKey, fishKey, size){
       if (!size) return null;
       const n = PRICE[lineKey].items[fishKey].sizes[size];
       return (typeof n === "number") ? n : null;
     }
 
-    function getQtyForCalc(){
+    function getQty(){
       const raw = (fQty.value || "").trim();
       if (raw === "") return 1;
       let q = parseInt(raw, 10);
@@ -1652,70 +1687,201 @@
       return q;
     }
     function normalizeQtyOnBlur(){
-      const q = getQtyForCalc();
-      fQty.value = String(q);
+      fQty.value = String(getQty());
     }
 
-    function buildOrderText(){
+    function updatePicker(){
       const lineKey = fLine.value;
       const fishKey = fFish.value;
       const size = fSize.value;
-      const qty = getQtyForCalc();
+      const qty = getQty();
+      const u = unitPriceFor(lineKey, fishKey, size);
+
+      fUnit.textContent = (u === null) ? "Уточнить" : money(u);
+      fLineTotal.textContent = (u === null) ? "Уточнить" : money(u * qty);
+
+      updateSendLinks();
+    }
+
+    function lineName(lineKey){ return PRICE[lineKey].title; }
+    function fishName(lineKey, fishKey){ return PRICE[lineKey].items[fishKey].name; }
+
+    function cartLineTotal(item){
+      if (item.unit === null) return null;
+      return item.unit * item.qty;
+    }
+
+    function cartTotal(){
+      let sum = 0;
+      for (const it of cart){
+        const t = cartLineTotal(it);
+        if (t === null) return null;
+        sum += t;
+      }
+      return sum;
+    }
+
+    function renderCart(){
+      if (!cart.length){
+        cartList.innerHTML = `<div class="cart-empty">Корзина пустая. Добавьте позиции слева.</div>`;
+      }else{
+        cartList.innerHTML = cart.map((it, idx) => {
+          const total = cartLineTotal(it);
+          const totalStr = (total === null) ? "Уточнить" : money(total);
+          const unitStr = (it.unit === null) ? "Уточнить" : money(it.unit);
+
+          return `
+            <div class="cart-item" data-idx="${idx}">
+              <div class="cart-left">
+                <div class="cart-name">${it.fish} — ${it.size || "Уточнить"}</div>
+                <div class="cart-meta">
+                  <span>${it.line}</span>
+                  <span>•</span>
+                  <span>за 1: ${unitStr}</span>
+                  <span>•</span>
+                  <span>сумма: ${totalStr}</span>
+                </div>
+              </div>
+
+              <div class="cart-right">
+                <div class="qty" aria-label="Количество">
+                  <button class="qbtn" data-act="dec" type="button" aria-label="Минус">−</button>
+                  <div class="qnum">${it.qty}</div>
+                  <button class="qbtn" data-act="inc" type="button" aria-label="Плюс">+</button>
+                </div>
+                <button class="delbtn" data-act="del" type="button" aria-label="Удалить">✕</button>
+              </div>
+            </div>
+          `;
+        }).join("");
+      }
+
+      const total = cartTotal();
+      cartTotalEl.textContent = (total === null) ? (cart.length ? "Уточнить" : "—") : money(total);
+
+      updateSendLinks();
+    }
+
+    cartList.addEventListener("click", (e) => {
+      const btn = e.target.closest("button");
+      if (!btn) return;
+
+      const wrap = e.target.closest(".cart-item");
+      if (!wrap) return;
+
+      const idx = parseInt(wrap.getAttribute("data-idx"), 10);
+      if (!Number.isFinite(idx) || !cart[idx]) return;
+
+      const act = btn.getAttribute("data-act");
+      if (act === "inc"){
+        cart[idx].qty = Math.min(99, cart[idx].qty + 1);
+        haptic(8);
+      }else if (act === "dec"){
+        cart[idx].qty = Math.max(1, cart[idx].qty - 1);
+        haptic(8);
+      }else if (act === "del"){
+        cart.splice(idx, 1);
+        haptic(12);
+        toast("Позиция удалена", "");
+      }
+      renderCart();
+    });
+
+    function addToCart(){
+      const lineKey = fLine.value;
+      const fishKey = fFish.value;
+      const size = fSize.value;
+      const qty = getQty();
+      const u = unitPriceFor(lineKey, fishKey, size);
+
+      const item = {
+        lineKey,
+        fishKey,
+        size,
+        qty,
+        unit: u,
+        line: lineName(lineKey),
+        fish: fishName(lineKey, fishKey)
+      };
+
+      // merge: если такая же позиция уже есть — складываем количество
+      const sameIdx = cart.findIndex(x =>
+        x.lineKey === item.lineKey &&
+        x.fishKey === item.fishKey &&
+        x.size === item.size
+      );
+      if (sameIdx >= 0){
+        cart[sameIdx].qty = Math.min(99, cart[sameIdx].qty + item.qty);
+        toast("Добавлено", "объединили в одну позицию");
+      }else{
+        cart.push(item);
+        toast("Добавлено в корзину ✅", "");
+      }
+
+      haptic(12);
+      renderCart();
+    }
+
+    addToCartBtn.addEventListener("click", addToCart);
+
+    clearCartBtn.addEventListener("click", () => {
+      cart = [];
+      haptic(16);
+      toast("Корзина очищена", "");
+      renderCart();
+    });
+
+    function buildCartText(){
       const comment = (fComment.value || "").trim();
+      const total = cartTotal();
 
-      const lineName = PRICE[lineKey].title;
-      const fishName = PRICE[lineKey].items[fishKey].name;
+      const parts = [];
+      parts.push("Здравствуйте! Хочу оформить заказ:");
 
-      const u = unitPrice();
-      const unitStr = (u === null) ? "Уточнить" : money(u);
-      const totalStr = (u === null) ? "Уточнить" : money(u * qty);
+      if (!cart.length){
+        parts.push("");
+        parts.push("Корзина пустая. Подскажите, пожалуйста, что есть в наличии сегодня.");
+      }else{
+        parts.push("");
+        cart.forEach((it, i) => {
+          const t = cartLineTotal(it);
+          const tStr = (t === null) ? "Уточнить" : money(t);
+          const uStr = (it.unit === null) ? "Уточнить" : money(it.unit);
+          parts.push(`${i+1}) ${it.fish} — ${it.line} — ${it.size || "Уточнить"} — ${it.qty} шт — ${tStr} (за 1: ${uStr})`);
+        });
+        parts.push("");
+        parts.push("Итого: " + (total === null ? "Уточнить" : money(total)));
+      }
 
-      const parts = [
-        "Здравствуйте! Хочу оформить заказ:",
-        `• ${fishName}`,
-        `• ${lineName}`,
-        `• Фасовка: ${size || "Уточнить"}`,
-        `• Кол-во: ${qty} шт.`,
-        `• Цена за 1: ${unitStr}`,
-        `• Итого: ${totalStr}`,
-        `• Контакт: ${PHONE_TEL}`
-      ];
-      if (comment) parts.push(`• Комментарий: ${comment}`);
+      if (comment) parts.push("Комментарий: " + comment);
+      parts.push("Контакт: " + PHONE_TEL);
       parts.push("");
       parts.push("Подскажите наличие и ближайшее время, пожалуйста.");
       return parts.join("\n");
     }
 
-    function updateOrder(){
-      const u = unitPrice();
-      const qty = getQtyForCalc();
-
-      fUnit.textContent = (u === null) ? "Уточнить" : money(u);
-      fTotal.textContent = (u === null) ? "Уточнить" : money(u * qty);
-
-      const text = buildOrderText();
-
+    function updateSendLinks(){
+      const text = buildCartText();
       if (channel === "wa"){
-        sendMain.textContent = "Отправить в WhatsApp";
+        sendMain.textContent = "Отправить корзину в WhatsApp";
         sendMain.href = waLink(text);
       }else{
-        sendMain.textContent = "Отправить в Telegram";
+        sendMain.textContent = "Отправить корзину в Telegram";
         sendMain.href = tgShareLink(text);
       }
     }
 
-    fLine.addEventListener("change", () => { syncOrderSizes(); updateOrder(); });
-    fFish.addEventListener("change", () => { syncOrderSizes(); updateOrder(); });
-    fSize.addEventListener("change", updateOrder);
-    fQty.addEventListener("input", updateOrder);
-    fQty.addEventListener("blur", () => { normalizeQtyOnBlur(); updateOrder(); });
-    fComment.addEventListener("input", updateOrder);
-
     copyOrderBtn.addEventListener("click", async () => {
-      await copyToClipboard(buildOrderText(), "Заявка скопирована ✅", "Вставьте в чат");
+      await copyToClipboard(buildCartText(), "Заказ скопирован ✅", "Вставьте в чат");
     });
 
-    sendMain.addEventListener("click", () => haptic(12));
+    // Picker events
+    fLine.addEventListener("change", () => { syncOrderSizes(); updatePicker(); });
+    fFish.addEventListener("change", () => { syncOrderSizes(); updatePicker(); });
+    fSize.addEventListener("change", updatePicker);
+    fQty.addEventListener("input", updatePicker);
+    fQty.addEventListener("blur", () => { normalizeQtyOnBlur(); updatePicker(); });
+    fComment.addEventListener("input", updateSendLinks);
 
     // ===== Reviews: leave review =====
     const reviewText =
@@ -1794,32 +1960,22 @@
 
     function hookRevealForNewNodes(){
       if (!revealObserver) return;
-      $$(".reveal:not(.in)").forEach(el => {
-        try{ revealObserver.observe(el); }catch(e){}
-      });
+      $$(".reveal:not(.in)").forEach(el => { try{ revealObserver.observe(el); }catch(e){} });
     }
 
     // ===== Init =====
-    function renderPriceInit(){
-      renderPrice("line1");
-    }
-
     function init(){
       renderAvail();
-      renderPriceInit();
+      renderPrice("line1");
       syncOrderSizes();
-      updateOrder();
-      hookLightbox();
+      updatePicker();
 
+      // start with empty cart
+      renderCart();
+
+      hookLightbox();
       revealObserver = createRevealObserver();
       hookRevealForNewNodes();
-
-      const qrBtn = $("#qrTop");
-      if (qrBtn){
-        qrBtn.addEventListener("click", async () => {
-          await copyToClipboard(TG_INVITE, "Ссылка на Telegram скопирована ✅");
-        });
-      }
     }
 
     init();
